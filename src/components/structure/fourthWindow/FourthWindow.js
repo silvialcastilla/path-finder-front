@@ -1,7 +1,7 @@
 import React from 'react'
 import Form from '../../form/Form'
 import Button from '../../button/Button'
-import Map from './../../Map'
+import Map from './../../map/Map'
 
 const ThirdWindow = () => {
     return (

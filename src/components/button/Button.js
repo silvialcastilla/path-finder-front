@@ -1,9 +1,9 @@
 import React from 'react'
 
-const ThirdWindow = () => {
+const Button = () => {
     return (
         <div>
-            {/*hay que ponerle*/}
+            <button>Pulsa</button>
         </div>
     )
 }

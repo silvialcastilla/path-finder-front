@@ -1,16 +1,11 @@
 import React from 'react'
-import Form from '../../form/Form'
-import Button from '../../button/Button'
-import Map from './../../Map'
 
-const ThirdWindow = () => {
+const Map = () => {
     return (
         <div>
-            <Form />
-            <Button />
-            <Map />
+{/*hacer la libreria*/ }
         </div>
     )
 }
 
-export default ThirdWindow
+export default Map

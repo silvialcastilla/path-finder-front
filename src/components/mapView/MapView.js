@@ -8,7 +8,7 @@ class MockMap extends React.Component {
     return (
       <Map
         style={styleMap}
-        center={[40.4233784, -3.692763,10]}
+        center={[37.885963680860755, -4.774589538574219,]}
         zoom={12}>
 
         <TileLayer
