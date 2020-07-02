@@ -1,16 +1,21 @@
 import React from 'react'
 import Form from '../../form/Form'
 import Button from '../../button/Button'
-import Map from './../../map/Map'
+import WalkMap from '../../walkMap/WalkMap'
 
-const ThirdWindow = () => {
+import './FourthWindow.css'
+
+const FourthWindow = () => {
     return (
-        <div>
+        <div className="fourth-page">
+            <div className="form-page">
             <Form />
             <Button />
-            <Map />
+            </div>
+            <WalkMap />
+            <Button />
         </div>
     )
 }
 
-export default ThirdWindow
+export default FourthWindow
