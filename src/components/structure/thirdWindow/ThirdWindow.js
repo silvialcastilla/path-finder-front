@@ -1,21 +1,33 @@
-import React from 'react'
-import Form from '../../form/Form'
-import Button from '../../button/Button'
-import MockMap from './../../mockMap/MockMap'
+import React, { useState} from "react";
+import Form from "../../form/Form";
+import Button from "../../button/Button";
+import LeafletMap from "../../leafletMap/LeafletMap";
 
-import './ThirdWindow.css'
+import "./ThirdWindow.css";
 
 const ThirdWindow = () => {
-    return (
-        <div className="third-page">
-            <div className="form-page">
-            <Form />
-            <Button />
-            </div>
-            <MockMap />
-            <Button />
-        </div>
-    )
-}
+  let coordenadasIniciales = JSON.parse(localStorage.getItem("coordenadas"));
+  if (!coordenadasIniciales) {
+    coordenadasIniciales = [];
+  }
+  //Arreglo de coordenadas
+  const [coordenadas, guardarCoordenadas] = useState(coordenadasIniciales);
 
-export default ThirdWindow
+
+  //Función que toma las cordenadas actuales
+  const crearCoordenada = (coordenada) => {
+    guardarCoordenadas([...coordenadas, coordenada]);
+  };
+
+  return (
+    <div className="third-page">
+      <div className="form-page">
+        <Form crearCoordenada={crearCoordenada} />
+      </div>
+      <LeafletMap/>
+      <Button />
+    </div>
+  );
+};
+
+export default ThirdWindow;

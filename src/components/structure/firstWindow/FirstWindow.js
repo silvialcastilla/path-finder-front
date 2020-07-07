@@ -5,7 +5,7 @@ import './FirstWindow.css'
 const FirstWindow = () => {
     return (
         <div className="first-page">
-        <Logo />
+        <Logo  />
         </div>
     )
 }
