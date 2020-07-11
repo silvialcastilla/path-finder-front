@@ -31,10 +31,7 @@ const Form = ({crearCoordenada}) => {
                 return;
             }
             // Eliminar el mensaje previo 
-            actualizarError(false);
-
-
-            
+            actualizarError(false);        
     
     
             // Crear la cita
@@ -46,7 +43,22 @@ const Form = ({crearCoordenada}) => {
                 destiny: ''
             })
 
-
+            /*await axios.get(`.../{origin}/{destiny}`)
+            .then(res => {
+                if(res.data.data.length === 0){
+                    response.val = false
+                } else {
+                    response.ida = res.data.data[0].iata_code
+                }
+            })
+            await axios.get(`.../{origin}/{destiny}`)
+            .then(res => {
+                if(res.data.data.length === 0){
+                    response.val = false
+                } else {
+                    response.ida = res.data.data[0].iata_code
+                }
+            })*/
         }
 
     

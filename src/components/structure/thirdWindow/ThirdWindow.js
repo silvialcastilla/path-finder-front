@@ -10,7 +10,7 @@ const ThirdWindow = () => {
   if (!coordenadasIniciales) {
     coordenadasIniciales = [];
   }
-  //Arreglo de coordenadas
+  //Array de coordenadas
   const [coordenadas, guardarCoordenadas] = useState(coordenadasIniciales);
 
 
