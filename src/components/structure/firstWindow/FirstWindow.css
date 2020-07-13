@@ -1,25 +1,31 @@
 .first-page {
-    width: 375px;
-    height: 667px;
-    background-color: #202327;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
+  width: 375px;
+  height: 667px;
+  background-color: #202327;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .subtract-left {
-    width: 225px;
-    height: 250px;
-    object-fit: contain;
-    background-image: linear-gradient(to top, rgba(255, 24, 51, 0), #ff1732);
+  width: 225px;
+  height: 250px;
+  object-fit: contain;
+}
+.subtract-left-horizon {
+  display: none;
 }
 
 .subtract-right {
   width: 225px;
-  height: 235px;
+  height: 195px;
   object-fit: contain;
-  background-image: linear-gradient(to top, #ff1833, rgba(255, 24, 51, 0));
-  align-self: flex-end
+  align-self: flex-end;
+  background-image: linear-gradient(to bot, #ff1833, rgba(255, 24, 51, 0));
+}
+
+.subtract-right-horizon {
+  display: none
 }
 
 .logo-box {
@@ -38,7 +44,7 @@
   height: 17px;
   object-fit: contain;
   background-image: radial-gradient(circle at 0 0, #000000, rgba(0, 0, 0, 0));
-  align-self: center
+  align-self: center;
 }
 
 .Ellipse4 {
@@ -46,12 +52,157 @@
   height: 8.2px;
   object-fit: contain;
   background-image: radial-gradient(circle at 0 0, #000000, rgba(0, 0, 0, 0));
-  align-self: center
+  align-self: center;
 }
-.Ellipse5{
+.Ellipse5 {
   width: 43.2px;
   height: 8.2px;
   object-fit: contain;
   background-image: radial-gradient(circle at 0 0, #000000, rgba(0, 0, 0, 0));
-  align-self: center
+  align-self: center;
+}
+
+@media (min-width: 768px) {
+  .first-page {
+    width: 768px;
+    height: 1024px;
+    background-color: #202327;
+  }
+  .subtract-left {
+    width: 448.8px;
+    height: 340px;
+    object-fit: contain;
+  }
+  .subtract-right {
+    width: 448px;
+    height: 381px;
+    object-fit: contain;
+    background-image: linear-gradient(to bot, #ff1833, rgba(255, 24, 51, 0));
+    align-self: flex-end;
+  }
+  .Logo {
+    width: 306.1px;
+    height: 104px;
+    object-fit: contain;
+  }
+  .Ellipse3 {
+    width: 390.2px;
+    height: 29.2px;
+    object-fit: contain;
+    background-image: radial-gradient(circle at 0 0, #000000, rgba(0, 0, 0, 0));
+  }
+  .Ellipse4 {
+    width: 74.3px;
+    height: 14.1px;
+    object-fit: contain;
+    background-image: radial-gradient(circle at 0 0, #000000, rgba(0, 0, 0, 0));
+  }
+  .Ellipse5 {
+    width: 74.3px;
+    height: 14.1px;
+    object-fit: contain;
+    background-image: radial-gradient(circle at 0 0, #000000, rgba(0, 0, 0, 0));
+  }
+}
+
+@media (min-width: 1024px) {
+  .first-page {
+    width: 1024px;
+    height: 768px;
+    background-color: #202327;
+  }
+  .subtract-left {
+    display: none;
+  }
+  .subtract-left-horizon {
+    display: block;
+    width: 520.1px;
+    height: 263.6px;
+    object-fit: contain;
+  }
+  .subtract-right {
+    display: none
+  }
+  .subtract-right-horizon {
+    display: block;
+    width: 486px;
+    height: 305.3px;
+    object-fit: contain;
+    background-image: linear-gradient(to bot, #ff1833, rgba(255, 24, 51, 0));
+    align-self: flex-end;
+  }
+  .Logo {
+    width: 306.1px;
+    height: 104px;
+    object-fit: contain;
+  }
+  .Ellipse3 {
+    width: 307.5px;
+    height: 23px;
+    object-fit: contain;
+    background-image: radial-gradient(circle at 0 0, #000000, rgba(0, 0, 0, 0));
+  }
+  .Ellipse4 {
+    width: 58.6px;
+    height: 11.1px;
+    object-fit: contain;
+    background-image: radial-gradient(circle at 0 0, #000000, rgba(0, 0, 0, 0));
+  }
+  .Ellipse5 {
+    width: 58.6px;
+    height: 11.1px;
+    object-fit: contain;
+    background-image: radial-gradient(circle at 0 0, #000000, rgba(0, 0, 0, 0));
+  }
+}
+
+@media (min-width: 1440px) {
+  .first-page {
+    width: 1440px;
+    height: 1024px;
+    background-color: #202327;
+  }
+  .subtract-left {
+    display: none;
+  }
+  .subtract-left-horizon {
+    display: block;
+    width: 725.3px;
+    height: 363.2px;
+    object-fit: contain;
+  }
+  .subtract-right {
+    display: none
+  }
+  .subtract-right-horizon {
+    display: block;
+    width: 650px;
+    height: 408px;
+    object-fit: contain;
+    background-image: linear-gradient(to bot, #ff1833, rgba(255, 24, 51, 0));
+    align-self: flex-end;
+  }
+  .Logo {
+    width: 379px;
+    height: 128px;
+    object-fit: contain;
+  }
+  .Ellipse3 {
+    width: 376.8px;
+    height: 28.2px;
+    object-fit: contain;
+    background-image: radial-gradient(circle at 0 0, #000000, rgba(0, 0, 0, 0));
+  }
+  .Ellipse4 {
+    width: 71.7px;
+    height: 13.6px;
+    object-fit: contain;
+    background-image: radial-gradient(circle at 0 0, #000000, rgba(0, 0, 0, 0));
+  }
+  .Ellipse5 {
+    width: 71.7px;
+    height: 13.6px;
+    object-fit: contain;
+    background-image: radial-gradient(circle at 0 0, #000000, rgba(0, 0, 0, 0));
+  }
 }
