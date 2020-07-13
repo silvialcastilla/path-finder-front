@@ -3,6 +3,8 @@ import './Form.css'
 
 
 const Form = ({crearCoordenada}) => {
+
+    
     const [coordenada, actualizarCoordenada] = useState({
         origin: '',
         destiny: '',

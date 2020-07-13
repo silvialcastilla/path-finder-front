@@ -5,8 +5,12 @@ import "./SecondWindow.css";
 class SecondWindow extends React.Component {
   constructor() {
     super();
+    this.state = {
+      ubicacion: null
+    };
     this.handleClick = this.handleClick.bind(this);
   }
+
 
   handleClick = (e) => {
     e.preventDefault();
@@ -22,7 +26,10 @@ class SecondWindow extends React.Component {
           Una web/app que permita al usuario desplazarse a pie del punto A al B,
           evitando y previniendo aglomeraciones
         </p>
-        <p>Al dar al botón comenzar estás aceptando que Mappi utilice tu ubicación.</p>
+        <p>
+          Al dar al botón comenzar estás aceptando que Mappi utilice tu
+          ubicación.
+        </p>
         <button onClick={this.handleClick}>Comenzar</button>
       </div>
     );
