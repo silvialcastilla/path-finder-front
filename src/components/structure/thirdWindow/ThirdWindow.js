@@ -59,7 +59,14 @@ class ThirdWindow extends React.Component {
       </Map>
       <Form //crearCoordenada={crearCoordenada} 
       />
-      <button onClick={this.handleClick} className="add-alert"><p className="add-alert-p">Añadir alerta</p></button>
+      <button onClick={this.handleClick} className="add-alert"><p className="add-alert-p">Añadir alerta</p>
+      <img
+              src="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey.svg"
+              src="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey.png"
+              alt="logo"
+              srcSet="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey@2x.png 2x, img/ThirdWindow/PlusCircleGrey/PlusCircleGrey@3x.png 3x"
+              className="add-alert-img"
+            ></img></button>
       </div>
     );
   }
