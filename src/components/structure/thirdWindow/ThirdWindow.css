@@ -1,13 +1,35 @@
 .third-page {
+    width: 375px;
+    height: 667px;
     display:flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-  
-
 }
 .form-page{
     display:flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+.add-alert {
+    width: 220px;
+    height: 52px;
+    border-radius: 16px;
+    background-color: #ff1833;
+    display: flex;
+    justify-content: center;
+}
+
+.add-alert-p {
+    width: 104px;
+    height: 16px;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: 0.75px;
+    color: #fff9f9;
 }

@@ -1,12 +1,29 @@
-import React, { useState} from "react";
+import React, { Component } from "react";
+import { Map, TileLayer } from "react-leaflet";
+import Routing from "../../routing/Routing";
 import Form from "../../form/Form";
-import Button from "../../button/Button";
-import LeafletMap from "../../leafletMap/LeafletMap";
 
 import "./ThirdWindow.css";
 
-const ThirdWindow = () => {
-  let coordenadasIniciales = JSON.parse(localStorage.getItem("coordenadas"));
+class ThirdWindow extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      ubicacion: null,
+      lat: 40.4233784,
+      lng: -3.692763,
+      zoom: 13,
+      isMapInit: false
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  saveMap = map => {
+    this.map = map;
+    this.setState({
+      isMapInit: true
+    });
+          {/*let coordenadasIniciales = JSON.parse(localStorage.getItem("coordenadas"));
   if (!coordenadasIniciales) {
     coordenadasIniciales = [];
   }
@@ -17,17 +34,35 @@ const ThirdWindow = () => {
   //Función que toma las cordenadas actuales
   const crearCoordenada = (coordenada) => {
     guardarCoordenadas([...coordenadas, coordenada]);
+  };*/}
   };
 
-  return (
-    <div className="third-page">
-      <div className="form-page">
-        <Form crearCoordenada={crearCoordenada} />
-      </div>
-      <LeafletMap/>
-      <Button />
-    </div>
-  );
-};
+  handleClick = (e) => {
+    e.preventDefault();
+    console.log("pulse");
+    this.props.history.push("/alerta");
 
-export default ThirdWindow;
+  };
+
+  
+
+  render() {
+    const position = [this.state.lat, this.state.lng];
+    return (
+      <div>
+      <Map center={position} zoom={this.state.zoom} ref={this.saveMap}>
+        <TileLayer
+          attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+          url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
+        />
+        {this.state.isMapInit && <Routing map={this.map} />}
+      </Map>
+      <Form //crearCoordenada={crearCoordenada} 
+      />
+      <button onClick={this.handleClick} className="add-alert"><p className="add-alert-p">Añadir alerta</p></button>
+      </div>
+    );
+  }
+}
+
+export default ThirdWindow
