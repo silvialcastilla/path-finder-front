@@ -10,14 +10,26 @@ class ThirdWindow extends React.Component {
     super();
     this.state = {
       ubicacion: null,
-      lat: 40.4233784,
-      lng: -3.692763,
+      lat: "",
+      lng: "",
       zoom: 13,
       isMapInit: false
     };
     this.handleClickAlert = this.handleClickAlert.bind(this);
     this.handleClickHelp = this.handleClickHelp.bind(this);
   }
+
+
+  componentDidMount() {
+
+    navigator.geolocation.getCurrentPosition(function location(position) {
+      this.setState({ ...this.state, lat: position.coords.latitude, lng: position.coords.longitude });
+      console.log(position)
+    }.bind(this));
+  }
+
+
+
 
   saveMap = map => {
     this.map = map;
@@ -51,9 +63,6 @@ class ThirdWindow extends React.Component {
     this.props.history.push("/alerta");
 
   };
-
-
-
   render() {
     const position = [this.state.lat, this.state.lng];
     return (
@@ -68,14 +77,14 @@ class ThirdWindow extends React.Component {
         <Form //crearCoordenada={crearCoordenada} 
         />
         <button onClick={this.handleClickHelp} className="help">Hola</button>
-          <button onClick={this.handleClickAlert} className="add-alert"><p className="add-alert-p">Añadir alerta</p>
-            <img
-              src="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey.svg"
-              src="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey.png"
-              alt="logo"
-              srcSet="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey@2x.png 2x, img/ThirdWindow/PlusCircleGrey/PlusCircleGrey@3x.png 3x"
-              className="add-alert-img"
-            ></img></button>
+        <button onClick={this.handleClickAlert} className="add-alert"><p className="add-alert-p">Añadir alerta</p>
+          <img
+            src="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey.svg"
+            src="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey.png"
+            alt="logo"
+            srcSet="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey@2x.png 2x, img/ThirdWindow/PlusCircleGrey/PlusCircleGrey@3x.png 3x"
+            className="add-alert-img"
+          ></img></button>
       </div>
     );
   }

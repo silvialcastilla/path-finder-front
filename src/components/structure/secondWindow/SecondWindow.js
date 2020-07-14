@@ -6,7 +6,7 @@ class SecondWindow extends React.Component {
   constructor() {
     super();
     this.state = {
-      ubicacion: null
+      ubicacion: []
     };
     this.handleClick = this.handleClick.bind(this);
   }
