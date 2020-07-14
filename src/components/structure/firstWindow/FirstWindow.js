@@ -10,7 +10,7 @@ class FirstWindow extends React.Component {
   handleClick = (e) => {
     e.preventDefault();
     console.log("pulse");
-    this.props.history.push("/presentation");
+    this.props.history.push("/presentacion");
   };
 
   render() {

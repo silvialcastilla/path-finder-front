@@ -41,7 +41,7 @@ class ThirdWindow extends React.Component {
   handleClickHelp = (e) => {
     e.preventDefault();
     console.log("pulse");
-    this.props.history.push("/help");
+    this.props.history.push("/ayuda");
 
   };
 

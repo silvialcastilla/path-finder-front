@@ -15,9 +15,9 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={FirstWindow} />
-          <Route path="/presentation" component={SecondWindow} />
-          <Route path="/map" component={ThirdWindow} />
-          <Route path="/help" component={HelpWindow} />
+          <Route path="/presentacion" component={SecondWindow} />
+          <Route path="/mapa" component={ThirdWindow} />
+          <Route path="/ayuda" component={HelpWindow} />
           <Route path="/alerta" component={FourthWindow} />
         </Switch>
       </Router>
