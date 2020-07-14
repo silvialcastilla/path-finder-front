@@ -15,7 +15,8 @@ class ThirdWindow extends React.Component {
       zoom: 13,
       isMapInit: false
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClickAlert = this.handleClickAlert.bind(this);
+    this.handleClickHelp = this.handleClickHelp.bind(this);
   }
 
   saveMap = map => {
@@ -23,7 +24,7 @@ class ThirdWindow extends React.Component {
     this.setState({
       isMapInit: true
     });
-          {/*let coordenadasIniciales = JSON.parse(localStorage.getItem("coordenadas"));
+    {/*let coordenadasIniciales = JSON.parse(localStorage.getItem("coordenadas"));
   if (!coordenadasIniciales) {
     coordenadasIniciales = [];
   }
@@ -37,30 +38,38 @@ class ThirdWindow extends React.Component {
   };*/}
   };
 
-  handleClick = (e) => {
+  handleClickHelp = (e) => {
+    e.preventDefault();
+    console.log("pulse");
+    this.props.history.push("/help");
+
+  };
+
+  handleClickAlert = (e) => {
     e.preventDefault();
     console.log("pulse");
     this.props.history.push("/alerta");
 
   };
 
-  
+
 
   render() {
     const position = [this.state.lat, this.state.lng];
     return (
       <div>
-      <Map center={position} zoom={this.state.zoom} ref={this.saveMap}>
-        <TileLayer
-          attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-          url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
+        <Map center={position} zoom={this.state.zoom} ref={this.saveMap}>
+          <TileLayer
+            attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+            url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
+          />
+          {this.state.isMapInit && <Routing map={this.map} />}
+        </Map>
+        <Form //crearCoordenada={crearCoordenada} 
         />
-        {this.state.isMapInit && <Routing map={this.map} />}
-      </Map>
-      <Form //crearCoordenada={crearCoordenada} 
-      />
-      <button onClick={this.handleClick} className="add-alert"><p className="add-alert-p">Añadir alerta</p>
-      <img
+        <button onClick={this.handleClickHelp} className="help">Hola</button>
+          <button onClick={this.handleClickAlert} className="add-alert"><p className="add-alert-p">Añadir alerta</p>
+            <img
               src="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey.svg"
               src="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey.png"
               alt="logo"
