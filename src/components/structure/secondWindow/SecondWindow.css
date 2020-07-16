@@ -1,13 +1,307 @@
-.second-page {
+*{
+    font-family: Lato;
+}
+.second-page-s {
     display:flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
     border: black 5px solid;
-    width: 300px;
-    height: 400px;
+    width: 375px;
+    height: 667px;
+    background-color: #fff9f9;
 }
-.logo {
-    width: 80px;
-    height: 80px;
+.second-page-l{
+    display: none;
+}
+
+.title{
+        width: 320px;
+        height: 41px;
+        font-family: Lato;
+        font-size: 24px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #333333;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+      }
+
+.titleContainer{
+    display: flex;
+    min-height: min-content;
+    margin-bottom: -40px;
+}
+
+.Subtract{
+    width: 157px;
+    height: 53px;
+    object-fit: contain;
+}
+
+.btn-secondPage{
+    background: none;
+    border: 0;
+    font-family: Lato;
+    font: inherit;
+    line-height: normal;
+    overflow: visible;
+    padding: 0;
+    -webkit-user-select: none; 
+     -webkit-appearance: button; 
+       -moz-user-select: none;
+        -ms-user-select: none;
+        width: 320px;
+        height: 52px;
+        border-radius: 16px;
+        background-color: #ff1833;
+        color:#ffffff;
+        margin-bottom: 28px;
+}
+
+.textContainer1{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+align-content: center;
+}
+
+.Welcome{
+    width: 210px;
+    height: 100px;
+    padding-top: 20px;
+    font-family: Lato;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.15px;
+    color: #333333;
+}
+
+.Aceptgeoloc{
+    width: 300px;
+    height: 52px;
+    font-family: Lato;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: 0.4px;
+    color: #333333;
+}
+
+.WelcomeText{
+    padding: 0;
+    margin:0;
+    display: flex;
+    justify-content: center;
+}
+
+.textContainer2{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.Size2{
+    display: none;
+}
+
+/*mas de 768*/
+@media (min-width: 768px) {
+    .second-page-s {
+        min-width: 768px;
+        min-height: 1024px;
+    }
+    
+    .textContainer1{
+        display: none;
+    }
+    .textContainer2{
+        display: flex;
+    }
+
+    .Welcome{
+        width: 500px;
+        height: 58px;
+        font-family: Lato;
+        font-size: 24px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #333333;
+    }
+    .Aceptgeoloc {
+        width: 497px;
+        height: 33px;
+        font-family: Lato;
+        font-size: 14px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.43;
+        letter-spacing: 0.25px;
+        color: #333333;
+        margin-top: 13%;
+        margin-bottom: -5%;
+      }
+
+      .title{
+        width: 194px;
+        height: 41px;
+        font-family: Lato;
+        font-size: 34px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: 0.25px;
+        color: #333333;
+      }
+
+      .Subtract {
+        width: 291.6px;
+        height: 98px;
+        object-fit: contain;
+        margin-top: -5%;
+      }
+
+      .Size1{display: none;
+    }
+
+      .Size2{display: flex;
+    }
+
+}
+
+/*más de 1024*/
+@media (min-width: 1024px) {
+    .second-page-s{
+        display: none;
+    }
+    .second-page-l{
+        display: flex;
+        min-width: 1024px;
+        min-height: 768px;
+        background-color: #fff9f9;
+        margin-top: -1%;
+        margin-left: -1%;
+        padding-right: 5%;
+    }
+    .pageContainer{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+    }
+    .imagesContainer{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .Size3{
+        display: flex;
+        margin-left: 5%;
+        margin-top: 35%;
+        width: 85%;
+    }
+    .Subtract3{
+        display: flex;
+        margin-left: -2%;
+        width: 50%;
+    }
+    
+    .textContainer{
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+    }
+
+    .Welcome {
+        width: 346px;
+        height: 164px;
+        font-family: Lato;
+        font-size: 30px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: 0.25px;
+        color: #333333;
+    }
+
+    .WelcomeText {
+        justify-content: flex-start;
+    }
+
+    .Subtract {
+        width: 351px;
+        height: 118px;
+        object-fit: contain;
+    }
+
+    .titleContainer {
+        display: flex;
+        min-height: min-content;
+        margin-bottom: 0;
+        margin-top: 15%;
+    }
+
+    .btn-secondPage{
+            width: 420px;
+            height: 72px;
+            border-radius: 16px;
+            background-color: #ff1833;
+            font-family: Lato;
+            font-size: 30px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: 0.25px;
+            color: #fff9f9;
+            margin-top: 10%;
+            margin-bottom: -5%;
+    }
+
+    .subtractContainer{
+        margin-bottom:-1%;
+    }
+} 
+
+/*más de 1350*/
+@media (min-width: 1350px) {
+    .textContainer {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        justify-content: start;
+    }
+    
+    .Size3 {
+        display: flex;
+        margin-left: 5%;
+        margin-top: 10%;
+        width: 85%;
+    }
+
+    .btn-secondPage{
+        margin-top: 5%;
+    }
+
+    .titleContainer{
+        margin-top: 0;
+    }
 }

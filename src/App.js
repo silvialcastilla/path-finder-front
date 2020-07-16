@@ -3,7 +3,7 @@ import FirstWindow from './components/structure/firstWindow/FirstWindow'
 import SecondWindow from './components/structure/secondWindow/SecondWindow'
 import ThirdWindow from './components/structure/thirdWindow/ThirdWindow'
 import FourthWindow from './components/structure/fourthWindow/FourthWindow'
-import HelpWindow from './components/helpWindow/HelpWindow'
+import FifthWindow from "./components/structure/fifthWindow/FifthWindow"
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 //import 'bootstrap/dist/css/bootstrap.css';
@@ -15,10 +15,10 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={FirstWindow} />
-          <Route path="/presentacion" component={SecondWindow} />
-          <Route path="/mapa" component={ThirdWindow} />
-          <Route path="/ayuda" component={HelpWindow} />
+          <Route path="/presentation" component={SecondWindow} />
+          <Route path="/map" component={ThirdWindow} />
           <Route path="/alerta" component={FourthWindow} />
+          <Route path="/alerta-detalle" component={FifthWindow} />
         </Switch>
       </Router>
     </div>

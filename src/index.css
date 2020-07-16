@@ -3,3 +3,7 @@
     width: 800px;
   }
   
+  @font-face {
+    font-family: 'Lato';
+    src: local('Lato'), url(./fonts/Lato-Regular.ttf) format('truetype');
+  }
