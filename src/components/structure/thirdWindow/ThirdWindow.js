@@ -34,10 +34,10 @@ class ThirdWindow extends React.Component {
     );
   }
 
-  saveMap = map => {
+  saveMap = (map) => {
     this.map = map;
     this.setState({
-      isMapInit: true
+      isMapInit: true,
     });
   };
 
@@ -51,23 +51,21 @@ class ThirdWindow extends React.Component {
     e.preventDefault();
     console.log("pulse");
     this.props.history.push("/alerta");
-  }
-
-  
-
+  };
   render() {
     const position = [this.state.lat, this.state.lng];
     return (
-      <div className="map-box">
+      <div>
         <Form/>
+        <button onClick={this.handleClickHelp} className="help">
         <img
-        onClick={this.handleClickHelp}
             src="img/Help/ButtonHelp/ButtonHelp.svg"
-            src="img/Help/ButtonHelp/ButtonHelp.svg"
+            src="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey.png"
             alt="logo"
-            srcSet="img/Help/ButtonHelp/ButtonHelp.svg@2x.png 2x,img/Help/ButtonHelp/ButtonHelp.svg@3x.png 3x"
-            className="help"
+            srcSet="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey@2x.png 2x, img/ThirdWindow/PlusCircleGrey/PlusCircleGrey@3x.png 3x"
+            className="add-alert-img"
           ></img>
+        </button>
         <Map center={position} zoom={this.state.zoom} ref={this.saveMap}>
           <TileLayer
             attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
@@ -90,4 +88,4 @@ class ThirdWindow extends React.Component {
       }
     }
 
-export default ThirdWindow
+export default ThirdWindow;

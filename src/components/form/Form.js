@@ -79,4 +79,4 @@ class Form extends React.Component {
         </form>) 
 }}
 
-export default Form;
+export default Form

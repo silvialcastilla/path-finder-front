@@ -11,6 +11,7 @@
     padding-top: 35px;
     padding-bottom: 25px;
 }
+
 .back-alert-img {
     width: 24px;
     height: 24px;
@@ -18,18 +19,18 @@
 }
 
 .back-alert-p {
-width: 134px;
-height: 29px;
-font-family: Lato;
-font-size: 24px;
-font-weight: normal;
-font-stretch: normal;
-font-style: normal;
-line-height: normal;
-letter-spacing: normal;
-color: #fff9f9;
-margin: 0;
-padding-left: 16px
+    width: 134px;
+    height: 29px;
+    font-family: Lato;
+    font-size: 24px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #fff9f9;
+    margin: 0;
+    padding-left: 16px
 }
 
 .type-alert {
@@ -68,7 +69,8 @@ padding-left: 16px
     padding-bottom: 27.8px;
 }
 
-.manifestacion {    
+.manifestacion {
+    padding-left: 44px;
     padding-right: 68px;
     width: 84px;
     height: 84px;
@@ -151,6 +153,7 @@ padding-left: 16px
 }
 
 .obra {
+    padding-left: 44px;
     padding-right: 68px;
     width: 84px;
     height: 84px;
@@ -231,9 +234,6 @@ padding-left: 16px
     background-color: white;
 }
 
-
-
-
 .add-alert-btn {
     width: 320px;
     height: 52px;
@@ -259,4 +259,4 @@ padding-left: 16px
     line-height: 1;
     letter-spacing: 0.75px;
     color: #636871;
-} 
+}
