@@ -10,12 +10,28 @@ class ThirdWindow extends React.Component {
     super();
     this.state = {
       ubicacion: null,
-      lat: 40.4233784,
-      lng: -3.692763,
-      zoom: 13,
-      isMapInit: false
+      lat: "",
+      lng: "",
+      zoom: 15,
+      isMapInit: false,
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClickAlert = this.handleClickAlert.bind(this);
+    this.handleClickHelp = this.handleClickHelp.bind(this);
+  }
+
+
+
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition(
+      function location(position) {
+        this.setState({
+          ...this.state,
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        });
+        console.log(position);
+      }.bind(this)
+    );
   }
 
   saveMap = map => {
@@ -23,26 +39,19 @@ class ThirdWindow extends React.Component {
     this.setState({
       isMapInit: true
     });
-          {/*let coordenadasIniciales = JSON.parse(localStorage.getItem("coordenadas"));
-  if (!coordenadasIniciales) {
-    coordenadasIniciales = [];
-  }
-  //Array de coordenadas
-  const [coordenadas, guardarCoordenadas] = useState(coordenadasIniciales);
-
-
-  //Función que toma las cordenadas actuales
-  const crearCoordenada = (coordenada) => {
-    guardarCoordenadas([...coordenadas, coordenada]);
-  };*/}
   };
 
-  handleClick = (e) => {
+  handleClickHelp = (e) => {
+    e.preventDefault();
+    console.log("pulse");
+    this.props.history.push("/ayuda");
+  };
+
+  handleClickAlert = (e) => {
     e.preventDefault();
     console.log("pulse");
     this.props.history.push("/alerta");
-
-  };
+  }
 
   
 
@@ -50,26 +59,36 @@ class ThirdWindow extends React.Component {
     const position = [this.state.lat, this.state.lng];
     return (
       <div>
-      <Map center={position} zoom={this.state.zoom} ref={this.saveMap}>
-        <TileLayer
-          attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-          url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
-        />
-        {this.state.isMapInit && <Routing map={this.map} />}
-      </Map>
-      <Form //crearCoordenada={crearCoordenada} 
-      />
-      <button onClick={this.handleClick} className="add-alert"><p className="add-alert-p">Añadir alerta</p>
-      <img
-              src="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey.svg"
-              src="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey.png"
-              alt="logo"
-              srcSet="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey@2x.png 2x, img/ThirdWindow/PlusCircleGrey/PlusCircleGrey@3x.png 3x"
-              className="add-alert-img"
-            ></img></button>
-      </div>
-    );
-  }
-}
+        <Form/>
+        <button onClick={this.handleClickHelp} className="help">
+        <img
+            src="img/Help/ButtonHelp/ButtonHelp.svg"
+            src="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey.png"
+            alt="logo"
+            srcSet="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey@2x.png 2x, img/ThirdWindow/PlusCircleGrey/PlusCircleGrey@3x.png 3x"
+            className="add-alert-img"
+          ></img>
+        </button>
+        <Map center={position} zoom={this.state.zoom} ref={this.saveMap}>
+          <TileLayer
+            attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+            url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
+          />
+          {this.state.isMapInit && <Routing map={this.map} />}
+        </Map>
+        <button onClick={this.handleClickAlert} className="add-alert">
+          <p className="add-alert-p">Añadir alerta</p>
+          <img
+            src="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey.svg"
+            src="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey.png"
+            alt="logo"
+            srcSet="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey@2x.png 2x, img/ThirdWindow/PlusCircleGrey/PlusCircleGrey@3x.png 3x"
+            className="add-alert-img"
+            ></img>
+            </button>
+          </div>
+        );
+      }
+    }
 
 export default ThirdWindow
