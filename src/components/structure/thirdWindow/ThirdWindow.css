@@ -33,3 +33,7 @@
     letter-spacing: 0.75px;
     color: #fff9f9;
 }
+
+.leaflet-routing-alternatives-container{
+    display: none;
+}
