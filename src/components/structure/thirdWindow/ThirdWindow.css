@@ -1,4 +1,4 @@
-.third-page {
+.map-box {
     width: 375px;
     height: 667px;
     display:flex;
@@ -36,4 +36,15 @@
 
 .leaflet-routing-alternatives-container{
     display: none;
-} 
+}
+.help {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.help:hover {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;    
+}

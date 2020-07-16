@@ -7,19 +7,26 @@ class FourthWindow extends React.Component {
         this.state = {
             ubicacion: null,
         };
-        this.handleClick = this.handleClick.bind(this);
+        this.handleClickBack = this.handleClickBack.bind(this);
+        this.handleClickCreate = this.handleClickCreate.bind(this)
     }
 
-    handleClick = (e) => {
+    handleClickBack = (e) => {
         e.preventDefault();
         console.log("pulse");
         this.props.history.push("/mapa");
     };
 
+    handleClickCreate = (e) => {
+        e.preventDefault();
+        console.log("pulse");
+        this.props.history.push("/alerta-detalle");
+    };
+
     render() {
         return (
             <div className="fourth-page">
-                <div className="back-alert" onClick={this.handleClick}>
+                <div className="back-alert" onClick={this.handleClickBack}>
                     <img
                         src="img/FourthWindow/LeftArrow/Arrow.svg"
                         src="img/FourthWindow/LeftArrow/Arrow.png"
@@ -87,7 +94,7 @@ class FourthWindow extends React.Component {
                         </div>
                     </div>
                     <div className="add-alert">
-                    <button className="add-alert-btn">
+                    <button className="add-alert-btn" onClick={this.handleClickCreate}>
                         <p className="add-alert-p">Crear alerta</p>
                     </button>
                     </div>
