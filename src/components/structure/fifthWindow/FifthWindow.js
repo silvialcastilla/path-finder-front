@@ -13,7 +13,7 @@ class FifthWindow extends React.Component {
     handleClick = (e) => {
         e.preventDefault();
         console.log("pulse");
-        this.props.history.push("/map");
+        this.props.history.push("/mapa");
     };
 
     render() {

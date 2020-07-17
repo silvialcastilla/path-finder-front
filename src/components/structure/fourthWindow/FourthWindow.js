@@ -26,7 +26,7 @@ class FourthWindow extends React.Component {
     render() {
         return (
             <div className="fourth-page">
-                <div className="back-alert" onClick={this.handleClickBack}>
+                <div className="back-alert" onClick={this.handleClick}>
                     <img
                         src="img/FourthWindow/LeftArrow/Arrow.svg"
                         src="img/FourthWindow/LeftArrow/Arrow.png"
@@ -36,11 +36,10 @@ class FourthWindow extends React.Component {
                     ></img>
                     <p className="back-alert-p"> Nueva alerta </p>
                 </div>
-
                 <div className="type-alert">
                     <p className="type-alert-p"> Tipo de alerta </p>
                     <div className="alerts-block">
-                        <div className="first-block">
+                        <div className="one-block">
                             <div className="manifestacion">
                                 <div className="first-block-manifestacion-circle">
                                     <img
@@ -66,7 +65,7 @@ class FourthWindow extends React.Component {
                                 <p className="first-block-evento-p"> Evento </p>
                             </div>
                         </div>
-                        <div className="second-block">
+                        <div className="two-block">
                             <div className="obra">
                                 <div className="second-block-obra-circle">
                                     <img
@@ -94,7 +93,7 @@ class FourthWindow extends React.Component {
                         </div>
                     </div>
                     <div className="add-alert">
-                    <button className="add-alert-btn" onClick={this.handleClickCreate}>
+                    <button className="add-alert-btn">
                         <p className="add-alert-p">Crear alerta</p>
                     </button>
                     </div>
@@ -103,5 +102,4 @@ class FourthWindow extends React.Component {
         );
     }
 }
-
 export default FourthWindow;

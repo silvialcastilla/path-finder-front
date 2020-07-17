@@ -57,15 +57,14 @@ class ThirdWindow extends React.Component {
     return (
       <div>
         <Form/>
-        <button onClick={this.handleClickHelp} className="help">
         <img
+        onClick={this.handleClickHelp}
             src="img/Help/ButtonHelp/ButtonHelp.svg"
-            src="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey.png"
+            src="img/Help/ButtonHelp/ButtonHelp.svg"
             alt="logo"
-            srcSet="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey@2x.png 2x, img/ThirdWindow/PlusCircleGrey/PlusCircleGrey@3x.png 3x"
-            className="add-alert-img"
+            srcSet="img/Help/ButtonHelp/ButtonHelp.svg@2x.png 2x,img/Help/ButtonHelp/ButtonHelp.svg@3x.png 3x"
+            className="help"
           ></img>
-        </button>
         <Map center={position} zoom={this.state.zoom} ref={this.saveMap}>
           <TileLayer
             attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
