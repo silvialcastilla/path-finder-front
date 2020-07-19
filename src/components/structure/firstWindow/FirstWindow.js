@@ -41,22 +41,6 @@ class FirstWindow extends React.Component {
             onClick={this.handleClick}
           ></img>
           <img
-            src="img/FirstWindow/Ellipse5/Ellipse5.svg"
-            src="img/FirstWindow/Ellipse5/Ellipse5.png"
-            alt="ellipse"
-            srcSet="img/FirstWindow/Ellipse5/Ellipse5@2x.png 2x,
-                    img/FirstWindow/Ellipse5/Ellipse5@3x.png 3x"
-            className="Ellipse5"
-          ></img>
-          <img
-            src="img/FirstWindow/Ellipse4/Ellipse4.svg"
-            src="img/FirstWindow/Ellipse4/Ellipse4.png"
-            alt="ellipse"
-            srcSet="img/FirstWindow/Ellipse4/Ellipse3@2x.png 2x,
-                    img/FirstWindow/Ellipse4/Ellipse4@3x.png 3x"
-            className="Ellipse4"
-          ></img>
-          <img
             src="img/FirstWindow/Ellipse3/Ellipse3.svg"
             src="img/FirstWindow/Ellipse3/Ellipse3.png"
             alt="ellipse"

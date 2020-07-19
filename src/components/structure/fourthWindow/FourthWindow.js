@@ -1,6 +1,8 @@
 import React from "react";
 import "./FourthWindow.css";
 
+const FourthWindowContext = React.createContext({})
+
 class FourthWindow extends React.Component {
     constructor() {
         super();
@@ -26,7 +28,7 @@ class FourthWindow extends React.Component {
     render() {
         return (
             <div className="fourth-page">
-                <div className="back-alert" onClick={this.handleClick}>
+                <div className="back-alert" onClick={this.handleClickBack}>
                     <img
                         src="img/FourthWindow/LeftArrow/Arrow.svg"
                         src="img/FourthWindow/LeftArrow/Arrow.png"
@@ -36,6 +38,7 @@ class FourthWindow extends React.Component {
                     ></img>
                     <p className="back-alert-p"> Nueva alerta </p>
                 </div>
+
                 <div className="type-alert">
                     <p className="type-alert-p"> Tipo de alerta </p>
                     <div className="alerts-block">
@@ -93,7 +96,7 @@ class FourthWindow extends React.Component {
                         </div>
                     </div>
                     <div className="add-alert">
-                    <button className="add-alert-btn">
+                    <button className="add-alert-btn" onClick={this.handleClickCreate}>
                         <p className="add-alert-p">Crear alerta</p>
                     </button>
                     </div>
@@ -102,4 +105,5 @@ class FourthWindow extends React.Component {
         );
     }
 }
-export default FourthWindow;
+
+export default FourthWindow

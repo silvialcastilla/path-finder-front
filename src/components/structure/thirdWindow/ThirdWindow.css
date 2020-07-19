@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
+    position: relative;
 }
 .form-page{
     display:flex;
@@ -12,18 +13,25 @@
     justify-content: space-around;
 }
 
-.add-alert {
-    width: 220px;
+.add-alert-btn {
+    width: 320px;
     height: 52px;
     border-radius: 16px;
     background-color: #ff1833;
     display: flex;
     justify-content: center;
+    position: absolute;
+    top: 120px;
+    right: 0;
+}
+.add-alert-img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    flex-grow: 1;  
 }
 
 .add-alert-p {
-    width: 104px;
-    height: 16px;
     font-family: Lato;
     font-size: 16px;
     font-weight: bold;
@@ -32,6 +40,7 @@
     line-height: 1;
     letter-spacing: 0.75px;
     color: #fff9f9;
+    flex-grow: 1;  
 }
 
 .leaflet-routing-alternatives-container{

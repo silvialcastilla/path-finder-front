@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Map, TileLayer } from "react-leaflet";
-import Routing from "../../routing/Routing";
+import { Map, TileLayer, Marker, Popup, Icon, L } from "react-leaflet";
+//import Routing from "../../routing/Routing";
 import Form from "../../form/Form";
 
 import "./ThirdWindow.css";
@@ -18,8 +18,6 @@ class ThirdWindow extends React.Component {
     this.handleClickAlert = this.handleClickAlert.bind(this);
     this.handleClickHelp = this.handleClickHelp.bind(this);
   }
-
-
 
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(
@@ -41,6 +39,7 @@ class ThirdWindow extends React.Component {
     });
   };
 
+
   handleClickHelp = (e) => {
     e.preventDefault();
     console.log("pulse");
@@ -56,35 +55,34 @@ class ThirdWindow extends React.Component {
     const position = [this.state.lat, this.state.lng];
     return (
       <div>
-        <Form/>
+        <Form />
         <img
-        onClick={this.handleClickHelp}
-            src="img/Help/ButtonHelp/ButtonHelp.svg"
-            src="img/Help/ButtonHelp/ButtonHelp.svg"
-            alt="logo"
-            srcSet="img/Help/ButtonHelp/ButtonHelp.svg@2x.png 2x,img/Help/ButtonHelp/ButtonHelp.svg@3x.png 3x"
-            className="help"
-          ></img>
-        <Map center={position} zoom={this.state.zoom} ref={this.saveMap}>
+          onClick={this.handleClickHelp}
+          src="img/Help/ButtonHelp/ButtonHelp.svg"
+          src="img/Help/ButtonHelp/ButtonHelp.svg"
+          alt="logo"
+          srcSet="img/Help/ButtonHelp/ButtonHelp.svg@2x.png 2x,img/Help/ButtonHelp/ButtonHelp.svg@3x.png 3x"
+          className="help"
+        ></img>
+        <Map center={position} zoom={this.state.zoom} ref={this.saveMap} className="map-box">
           <TileLayer
-            attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
             url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
           />
-          {this.state.isMapInit && <Routing map={this.map} />}
+          {this.state.isMapInit && <Form map={this.map} />}
         </Map>
-        <button onClick={this.handleClickAlert} className="add-alert">
-          <p className="add-alert-p">Añadir alerta</p>
+        <button onClick={this.handleClickAlert} className="add-alert-btn">
           <img
-            src="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey.svg"
-            src="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey.png"
+            src="img/ThirdWindow/CircleAddAlert/CircleAddAlert.svg"
+            src="img/ThirdWindow/CircleAddAlert/CircleAddAlert.png"
             alt="logo"
-            srcSet="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey@2x.png 2x, img/ThirdWindow/PlusCircleGrey/PlusCircleGrey@3x.png 3x"
+            srcSet="img/ThirdWindow/CircleAddAlert/CircleAddAlert@2x.png 2x, img/ThirdWindow/CircleAddAlert/CircleAddAlert@3x.png 3x"
             className="add-alert-img"
-            ></img>
-            </button>
-          </div>
-        );
-      }
-    }
+          ></img>
+          <p className="add-alert-p">Añadir alerta</p>
+        </button>
+      </div>
+    );
+  }
+}
 
 export default ThirdWindow;

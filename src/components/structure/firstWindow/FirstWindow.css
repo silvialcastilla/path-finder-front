@@ -43,24 +43,12 @@
   width: 227px;
   height: 17px;
   object-fit: contain;
-  background-image: radial-gradient(circle at 0 0, #000000, rgba(0, 0, 0, 0));
+  border-radius: 50%;
   align-self: center;
+  background-image: radial-gradient(circle at 0 0, #000000, rgba(0, 0, 0, 0));
 }
 
-.Ellipse4 {
-  width: 43.2px;
-  height: 8.2px;
-  object-fit: contain;
-  background-image: radial-gradient(circle at 0 0, #000000, rgba(0, 0, 0, 0));
-  align-self: center;
-}
-.Ellipse5 {
-  width: 43.2px;
-  height: 8.2px;
-  object-fit: contain;
-  background-image: radial-gradient(circle at 0 0, #000000, rgba(0, 0, 0, 0));
-  align-self: center;
-}
+
 
 @media (min-width: 768px) {
   .first-page {
@@ -89,18 +77,8 @@
     width: 390.2px;
     height: 29.2px;
     object-fit: contain;
-    background-image: radial-gradient(circle at 0 0, #000000, rgba(0, 0, 0, 0));
-  }
-  .Ellipse4 {
-    width: 74.3px;
-    height: 14.1px;
-    object-fit: contain;
-    background-image: radial-gradient(circle at 0 0, #000000, rgba(0, 0, 0, 0));
-  }
-  .Ellipse5 {
-    width: 74.3px;
-    height: 14.1px;
-    object-fit: contain;
+    border-radius: 50%;
+    align-self: center;
     background-image: radial-gradient(circle at 0 0, #000000, rgba(0, 0, 0, 0));
   }
 }
@@ -140,18 +118,8 @@
     width: 307.5px;
     height: 23px;
     object-fit: contain;
-    background-image: radial-gradient(circle at 0 0, #000000, rgba(0, 0, 0, 0));
-  }
-  .Ellipse4 {
-    width: 58.6px;
-    height: 11.1px;
-    object-fit: contain;
-    background-image: radial-gradient(circle at 0 0, #000000, rgba(0, 0, 0, 0));
-  }
-  .Ellipse5 {
-    width: 58.6px;
-    height: 11.1px;
-    object-fit: contain;
+    border-radius: 50%;
+    align-self: center;
     background-image: radial-gradient(circle at 0 0, #000000, rgba(0, 0, 0, 0));
   }
 }
@@ -191,18 +159,8 @@
     width: 376.8px;
     height: 28.2px;
     object-fit: contain;
-    background-image: radial-gradient(circle at 0 0, #000000, rgba(0, 0, 0, 0));
-  }
-  .Ellipse4 {
-    width: 71.7px;
-    height: 13.6px;
-    object-fit: contain;
-    background-image: radial-gradient(circle at 0 0, #000000, rgba(0, 0, 0, 0));
-  }
-  .Ellipse5 {
-    width: 71.7px;
-    height: 13.6px;
-    object-fit: contain;
+    border-radius: 50%;
+    align-self: center;
     background-image: radial-gradient(circle at 0 0, #000000, rgba(0, 0, 0, 0));
   }
 }

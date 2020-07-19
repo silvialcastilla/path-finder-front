@@ -2,7 +2,41 @@
     display:flex;
     flex-direction: column;
 }
+.imgs-form{
+    width: 24px;
+    height: 90px;
+  
+}
 .finder {
     display:flex;
     flex-direction: column;
+    width: 375px;
+    height: 230px;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+    background-color: #fffcfc;  
+}
+.ubication{
+    width: 293px;
+    height: 48px;
+    border-radius: 8px;
+    border: solid 1px #91969f;
+    background-color: #fff9f9;
+}
+.button-go-to-destiny{
+    width: 120px;
+    height: 28px;
+    border-radius: 8px;
+    background-color: #ff1833;
+}
+.button-go-to-destiny-p{
+    margin: 0;
+    height: 16px;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: 0.75px;
+    color: #fff9f9;
 }
