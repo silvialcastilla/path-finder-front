@@ -1,3 +1,15 @@
+.form-page{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.sidebar {
+    position: absolute;
+    top: 108px;
+    left: 20px;
+    background-color: white
+
+}
 .map-box {
     width: 375px;
     height: 667px;
@@ -5,12 +17,12 @@
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-    position: relative;
+    position: fixed;
 }
-.form-page{
-    display:flex;
-    flex-direction: row;
-    justify-content: space-around;
+.help{
+    position: absolute;
+    top: 108px;
+    left: 307px
 }
 
 .add-alert-btn {
@@ -21,8 +33,8 @@
     display: flex;
     justify-content: center;
     position: absolute;
-    top: 120px;
-    right: 0;
+    top: 567px;
+    left: 27px;
 }
 .add-alert-img {
     width: 24px;
@@ -57,3 +69,4 @@
     height: 32px;
     object-fit: contain;    
 }
+

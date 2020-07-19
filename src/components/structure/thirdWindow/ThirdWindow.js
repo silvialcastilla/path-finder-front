@@ -55,7 +55,12 @@ class ThirdWindow extends React.Component {
     const position = [this.state.lat, this.state.lng];
     return (
       <div>
-        <Form />
+        <Map center={position} zoom={this.state.zoom} ref={this.saveMap} className="map-box">
+          <TileLayer
+            url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
+          />
+          {this.state.isMapInit && <Form map={this.map} />}
+        </Map>
         <img
           onClick={this.handleClickHelp}
           src="img/Help/ButtonHelp/ButtonHelp.svg"
@@ -64,12 +69,6 @@ class ThirdWindow extends React.Component {
           srcSet="img/Help/ButtonHelp/ButtonHelp.svg@2x.png 2x,img/Help/ButtonHelp/ButtonHelp.svg@3x.png 3x"
           className="help"
         ></img>
-        <Map center={position} zoom={this.state.zoom} ref={this.saveMap} className="map-box">
-          <TileLayer
-            url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
-          />
-          {this.state.isMapInit && <Form map={this.map} />}
-        </Map>
         <button onClick={this.handleClickAlert} className="add-alert-btn">
           <img
             src="img/ThirdWindow/CircleAddAlert/CircleAddAlert.svg"

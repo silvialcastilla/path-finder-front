@@ -16,7 +16,8 @@
     "react-leaflet": "^2.7.0",
     "react-native": "^0.63.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "react-sidebar": "^3.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
