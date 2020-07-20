@@ -36,15 +36,13 @@ class ThirdWindow extends React.Component {
   saveMap = (map) => {
     this.map = map;
     this.setState({
-      ...this.state,
       isMapInit: true,
     });
   };
 
-  outputEvent(resultapi) {
-    this.setState({ ...this.state, resultapi: resultapi });
-    console.log(this.state)
-  }
+  async outputEvent(event) {
+    await this.setState({ resultapi: this.state.resultapi });
+}
 
   handleClickHelp = (e) => {
     e.preventDefault();
@@ -77,7 +75,8 @@ class ThirdWindow extends React.Component {
           className="help"
         ></img>
                 <div>
-          <Form className="form" clickHandler={this.outputEvent} />
+          <Form className="form" 
+        clickHandler={this.outputEvent} />
         </div>
         <button onClick={this.handleClickAlert} className="add-alert-btn">
           <img

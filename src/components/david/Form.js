@@ -32,7 +32,6 @@ class Form extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
     let origin = this.state.origin;
     let destiny = this.state.destiny;
     console.log(origin);
@@ -73,12 +72,11 @@ class Form extends React.Component {
     takeCoord(origin, destiny).then((data) => {
       this.setState({
         ...this.state,
-        resultapi: data.features[0].geometry.coordinates,
+        resultapi: data.features[0].geometry.coordinates.join().split(),
       });
       this.setState({ ...this.state, showResults: false });
-    }).then(
-      () => this.props.clickHandler(this.state.resultapi)
-    );
+    }
+);
   }
 
   render() {
@@ -127,6 +125,7 @@ class Form extends React.Component {
                   />
                   <button
                     type="submit"
+                    onClick={this.props.clickHandler}
                     className="button-go-to-destiny"
                   >
                     <p className="button-go-to-destiny-p">ir al destino</p>

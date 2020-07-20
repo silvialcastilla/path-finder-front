@@ -1,5 +1,16 @@
 .first-form {
     position: absolute;
+    width: 293px;
+    height: 48px;
+    border-radius: 8px;
+    border: solid 1px #91969f;
+    background-color: #fff9f9;
+    top: 40px;
+    left: 50px  
+}
+
+.placeholder {
+    padding-left: 16px;
 }
 .form {
     display:flex;
