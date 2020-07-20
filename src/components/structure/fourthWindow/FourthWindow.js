@@ -67,7 +67,8 @@ class FourthWindow extends React.Component {
                             <div className="obra">
                                 <div className="second-block-obra-circle">
                                     <img
-                                        src={["img/FourthWindow/Obras/Obras.svg","img/FourthWindow/Obras/Obras.png"]}
+                                        src="img/FourthWindow/Obras/Obras.svg"
+                                        src="img/FourthWindow/Obras/Obras.png"
                                         alt="logo"
                                         srcSet="img/FourthWindow/Obras/Obras@2x.png 2x, img/FourthWindow/Obras/Obras@3x.png 3x"
                                         className="second-block-obra-img"
@@ -78,7 +79,8 @@ class FourthWindow extends React.Component {
                             <div className="otro">
                                 <div className="second-block-otro-circle">
                                     <img
-                                        src={["img/FourthWindow/Otros/Otros.svg","img/FourthWindow/Otros/Otros.png"]}
+                                        src="img/FourthWindow/Otros/Otros.svg"
+                                        src="img/FourthWindow/Otros/Otros.png"
                                         alt="logo"
                                         srcSet="img/FourthWindow/Otros/Otros@2x.png 2x, img/FourthWindow/Otros/Otros@3x.png 3x"
                                         className="second-block-otro-img"

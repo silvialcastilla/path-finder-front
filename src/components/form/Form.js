@@ -4,8 +4,8 @@ import './Form.css'
 export const myFirstContext = React.createContext()
 
 class Form extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             origin: '',
             destiny: '',
@@ -78,7 +78,8 @@ class Form extends React.Component {
                     <div className="icons">
                         <div >
                             <img
-                                src={["img/ThirdWindow/CircleForm/CircleForm.svg","img/ThirdWindow/CircleForm/CircleForm.png"]}
+                                src="img/ThirdWindow/CircleForm/CircleForm.svg"
+                                src="img/ThirdWindow/CircleForm/CircleForm.png"
                                 alt="logo"
                                 srcSet="img/ThirdWindow/CircleForm/CircleForm@2x.png 2x, img/ThirdWindow/CircleForm/CircleForm@3x.png 3x"
                                 className="icon-form"
@@ -88,14 +89,15 @@ class Form extends React.Component {
                         </div>
                         <div>
                             <img
-                                src={["img/ThirdWindow/AlForm/AlForm.svg","img/ThirdWindow/AlForm/AlForm.png"]}
+                                src="img/ThirdWindow/AlForm/AlForm.svg"
+                                src="img/ThirdWindow/AlForm/AlForm.png"
                                 alt="logo"
                                 srcSet="img/ThirdWindow/AlForm/AlForm@2x.png 2x, img/ThirdWindow/AlForm/AlForm@3x.png 3x"
                                 className="icon-form"
                             ></img>
                             <label htmlFor="destiny"></label>
                             <input type="text" className="ubication" id="destiny" name="destiny" value={this.state.destiny} placeholder="Buscar destino" onChange={this.handleInputChange} />
-                            <button type="submit" onClick={this.props.clickHandler} className="button-go-to-destiny"><p className="button-go-to-destiny-p">ir al destino</p></button>
+                            <button type="submit" onClick={this.props.clickHandler}  className="button-go-to-destiny"><p className="button-go-to-destiny-p">ir al destino</p></button>
                         </div>
                     </div>
                 </div>

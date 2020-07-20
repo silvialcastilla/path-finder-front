@@ -36,7 +36,8 @@ class FifthWindow extends React.Component {
                             <div className="delete">
                                 <div className="first-block-delete-circle">
                                     <img
-                                        src={["img/FifthWindow/Delete/Delete.svg","../../img/FifthWindow/Delete/Delete.png"]}
+                                        src="img/FifthWindow/Delete/Delete.svg"
+                                        src="../../img/FifthWindow/Delete/Delete.png"
                                         alt="logo"
                                         srcSet="img/FifthWindow/Delete/Delete@2x.png 2x, img/FifthWindow/Delete/Delete@3x.png 3x"
                                         className="first-block-delete-img"
