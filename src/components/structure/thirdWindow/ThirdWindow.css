@@ -3,12 +3,15 @@
     flex-direction: row;
     justify-content: space-around;
 }
-.sidebar {
+.form {
     position: absolute;
-    top: 108px;
-    left: 20px;
-    background-color: white
+}
+leaflet-top leaflet-left{
+    display: none
+}
 
+leaflet-control-zoom leaflet-bar leaflet-control {
+    display: none
 }
 .map-box {
     width: 375px;

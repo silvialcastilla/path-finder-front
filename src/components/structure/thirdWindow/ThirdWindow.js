@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Map, TileLayer, Marker, Popup, Icon, L } from "react-leaflet";
-//import Routing from "../../routing/Routing";
+import React from "react";
+import { Map, TileLayer} from "react-leaflet";
+import Routing from "../../routing/Routing";
 import Form from "../../form/Form";
 
 import "./ThirdWindow.css";
@@ -59,20 +59,19 @@ class ThirdWindow extends React.Component {
           <TileLayer
             url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
           />
-          {this.state.isMapInit && <Form map={this.map} />}
+          {this.state.isMapInit && <Routing map={this.map} />}
         </Map>
+        <Form className="form"/>
         <img
           onClick={this.handleClickHelp}
-          src="img/Help/ButtonHelp/ButtonHelp.svg"
-          src="img/Help/ButtonHelp/ButtonHelp.svg"
+          src={["img/Help/ButtonHelp/ButtonHelp.svg","img/Help/ButtonHelp/ButtonHelp.svg"]}
           alt="logo"
           srcSet="img/Help/ButtonHelp/ButtonHelp.svg@2x.png 2x,img/Help/ButtonHelp/ButtonHelp.svg@3x.png 3x"
           className="help"
         ></img>
         <button onClick={this.handleClickAlert} className="add-alert-btn">
           <img
-            src="img/ThirdWindow/CircleAddAlert/CircleAddAlert.svg"
-            src="img/ThirdWindow/CircleAddAlert/CircleAddAlert.png"
+            src={["img/ThirdWindow/CircleAddAlert/CircleAddAlert.svg","img/ThirdWindow/CircleAddAlert/CircleAddAlert.png"]}
             alt="logo"
             srcSet="img/ThirdWindow/CircleAddAlert/CircleAddAlert@2x.png 2x, img/ThirdWindow/CircleAddAlert/CircleAddAlert@3x.png 3x"
             className="add-alert-img"

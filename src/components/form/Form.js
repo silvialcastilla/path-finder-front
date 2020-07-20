@@ -1,21 +1,19 @@
 import React from "react";
-import { MapLayer } from "react-leaflet";
-import L from "leaflet";
-import "leaflet-routing-machine";
-import { withLeaflet } from "react-leaflet";
 import './Form.css'
 
+export const myFirstContext = React.createContext()
 
 class Form extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             origin: '',
             destiny: '',
             latorigin: '',
             longorigin: '',
             latdestiny: '',
-            longdestiny: ''
+            longdestiny: '',
+            resultapi: ''
         };
         this.handleInputChange = this.handleInputChange.bind(this);
     }
@@ -62,8 +60,9 @@ class Form extends React.Component {
                 return response.json();
             })
             .then(data => {
-            data.features[0].geometry.coordinates.map((data) => {
-                    console.log(data)                 
+                data.features[0].geometry.coordinates.map((data) => {
+                    this.setState({ ...this.state, resultapi: data });
+                    console.log(this.state)
                 })
             }).catch((error) => {
                 console.error('Error:', error);
@@ -74,28 +73,31 @@ class Form extends React.Component {
     render() {
         return (
             <form className="form"
-                onSubmit={this.handleSubmit.bind(this)}>
+                onSubmit={this.handleSubmit.bind(this)}> 
                 <div className="finder">
-                    <div></div>
-                    <img
-                        src="img/ThirdWindow/CircleForm/CircleForm.svg"
-                        src="img/ThirdWindow/CircleForm/CircleForm.png"
-                        alt="logo"
-                        srcSet="img/ThirdWindow/CircleForm/CircleForm@2x.png 2x, img/ThirdWindow/CircleForm/CircleForm@3x.png 3x"
-                        className="add-alert-img"
-                    ></img>
-                    <label htmlFor="origin"></label>
-                    <input type="text" className="ubication" id="origin" name="origin" value={this.state.origin} placeholder="Tu ubicación" onChange={this.handleInputChange} />
-                    <img
-                        src="img/ThirdWindow/AlForm/AlForm.svg"
-                        src="img/ThirdWindow/AlForm/AlForm.png"
-                        alt="logo"
-                        srcSet="img/ThirdWindow/AlForm/AlForm@2x.png 2x, img/ThirdWindow/AlForm/AlForm@3x.png 3x"
-                        className="add-alert-img"
-                    ></img>
-                    <label htmlFor="destiny"></label>
-                    <input type="text" className="ubication" id="destiny" name="destiny" value={this.state.destiny} placeholder="Buscar destino" onChange={this.handleInputChange} />
-                    <button type="submit" className="button-go-to-destiny"><p className="button-go-to-destiny-p">ir al destino</p></button>
+                    <div className="icons">
+                        <div >
+                            <img
+                                src={["img/ThirdWindow/CircleForm/CircleForm.svg","img/ThirdWindow/CircleForm/CircleForm.png"]}
+                                alt="logo"
+                                srcSet="img/ThirdWindow/CircleForm/CircleForm@2x.png 2x, img/ThirdWindow/CircleForm/CircleForm@3x.png 3x"
+                                className="icon-form"
+                            ></img>
+                            <label htmlFor="origin"></label>
+                            <input type="text" className="ubication" id="origin" name="origin" value={this.state.origin} placeholder="Tu ubicación" onChange={this.handleInputChange} />
+                        </div>
+                        <div>
+                            <img
+                                src={["img/ThirdWindow/AlForm/AlForm.svg","img/ThirdWindow/AlForm/AlForm.png"]}
+                                alt="logo"
+                                srcSet="img/ThirdWindow/AlForm/AlForm@2x.png 2x, img/ThirdWindow/AlForm/AlForm@3x.png 3x"
+                                className="icon-form"
+                            ></img>
+                            <label htmlFor="destiny"></label>
+                            <input type="text" className="ubication" id="destiny" name="destiny" value={this.state.destiny} placeholder="Buscar destino" onChange={this.handleInputChange} />
+                            <button type="submit" onClick={this.props.clickHandler} className="button-go-to-destiny"><p className="button-go-to-destiny-p">ir al destino</p></button>
+                        </div>
+                    </div>
                 </div>
             </form>)
     }

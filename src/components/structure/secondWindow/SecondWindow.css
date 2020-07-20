@@ -287,7 +287,7 @@ align-content: center;
         display: flex;
         flex-direction: column;
         width: 80%;
-        justify-content: start;
+        justify-content: flex-start;
     }
     
     .Size3 {

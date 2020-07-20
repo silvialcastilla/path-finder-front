@@ -21,8 +21,7 @@ class HelpWindow extends React.Component {
       <div className="help-page">
         <div className="back-help" onClick={this.handleClick}>
           <img
-            src="img/FourthWindow/LeftArrow/Arrow.svg"
-            src="img/FourthWindow/LeftArrow/Arrow.png"
+            src={["img/FourthWindow/LeftArrow/Arrow.svg","img/FourthWindow/LeftArrow/Arrow.png"]}
             alt="logo"
             srcSet="img/FourthWindow/LeftArrow/Arrow@2x.png 2x, img/FourthWindow/LeftArrow/Arrow@3x.png 3x"
             className="back-help-img"
@@ -35,8 +34,7 @@ class HelpWindow extends React.Component {
             <section className="question-one">
               <p className="question-one-p">¿Qué es una manifestación?</p>
               <img
-                src="img/Help/BottomArrow/BottomArrow.svg"
-                src="img/Help/BottomArrow/BottomArrow.png"
+                src={["img/Help/BottomArrow/BottomArrow.svg","img/Help/BottomArrow/BottomArrow.png"]}
                 alt="logo"
                 srcSet="img/Help/BottomArrow/BottomArrow@2x.png 2x, img/Help/BottomArrow/BottomArrow@3x.png 3x"
                 className="add-alert-img"
@@ -46,8 +44,7 @@ class HelpWindow extends React.Component {
               <div className="aliens-block">
                 <p className="question-two-title">¿Hay aliens en el planeta tierra?</p>
                 {<img
-                src="img/Help/TopArrow/TopArrow.svg"
-                src="img/Help/TopArrow/TopArrow.png"
+                src={["img/Help/TopArrow/TopArrow.svg","img/Help/TopArrow/TopArrow.png"]}
                 alt="logo"
                 srcSet="img/Help/TopArrow/TopArrow@2x.png 2x, img/Help/TopArrow/TopArrow@3x.png 3x"
                 className="add-alert-img"
@@ -61,8 +58,7 @@ class HelpWindow extends React.Component {
             <section className="question-three">
               <p className="question-three-p">¿Dónde estamos?</p>
               <img
-                src="img/Help/BottomArrow/BottomArrow.svg"
-                src="img/Help/BottomArrow/BottomArrow.png"
+                src={["img/Help/BottomArrow/BottomArrow.svg","img/Help/BottomArrow/BottomArrow.png"]}
                 alt="logo"
                 srcSet="img/Help/BottomArrow/BottomArrow@2x.png 2x, img/Help/BottomArrow/BottomArrow@3x.png 3x"
                 className="add-alert-img"
@@ -71,8 +67,7 @@ class HelpWindow extends React.Component {
             <section className="question-four">
               <p className="question-four-p">¿Por qué?</p>
               {<img
-                src="img/Help/BottomArrow/BottomArrow.svg"
-                src="img/Help/BottomArrow/BottomArrow.png"
+                src={["img/Help/BottomArrow/BottomArrow.svg","img/Help/BottomArrow/BottomArrow.png"]}
                 alt="logo"
                 srcSet="img/Help/BottomArrow/BottomArrow@2x.png 2x, img/Help/BottomArrow/BottomArrow@3x.png 3x"
                 className="add-alert-img"
