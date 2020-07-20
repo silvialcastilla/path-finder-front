@@ -1,5 +1,5 @@
 import React from "react";
-import { Map, TileLayer} from "react-leaflet";
+import { Map, TileLayer } from "react-leaflet";
 import Routing from "../../routing/Routing";
 import Form from "../../form/Form";
 
@@ -14,9 +14,11 @@ class ThirdWindow extends React.Component {
       lng: "",
       zoom: 15,
       isMapInit: false,
+      resultapi: ''
     };
     this.handleClickAlert = this.handleClickAlert.bind(this);
     this.handleClickHelp = this.handleClickHelp.bind(this);
+    this.outputEvent = this.outputEvent.bind(this);
   }
 
   componentDidMount() {
@@ -39,6 +41,11 @@ class ThirdWindow extends React.Component {
     });
   };
 
+  async outputEvent(event) {
+    // the event context comes from the Child
+    await this.setState({ resultapi: this.state.resultapi });
+    console.log(this.state)
+}
 
   handleClickHelp = (e) => {
     e.preventDefault();
@@ -55,13 +62,19 @@ class ThirdWindow extends React.Component {
     const position = [this.state.lat, this.state.lng];
     return (
       <div>
+
         <Map center={position} zoom={this.state.zoom} ref={this.saveMap} className="map-box">
           <TileLayer
             url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
           />
           {this.state.isMapInit && <Routing map={this.map} />}
         </Map>
-        <Form className="form"/>
+        <div>
+          Count: {this.state.resultapi}
+          <Form className="form" 
+        clickHandler={this.outputEvent} />
+        </div>
+
         <img
           onClick={this.handleClickHelp}
           src="img/Help/ButtonHelp/ButtonHelp.svg"

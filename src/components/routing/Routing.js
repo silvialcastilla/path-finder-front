@@ -9,8 +9,9 @@ class Routing extends MapLayer {
   createLeafletElement() {
     const { map } = this.props;
     let leafletElement = L.Routing.control({
-      waypoints: [L.latLng(), L.latLng(40.43, -3.70)]
+      waypoints: [L.latLng(this.props.resultapi)]
     }).addTo(map.leafletElement);
+    console.log(this.props.resultapi)
     return leafletElement.getPlan();
   }
 }

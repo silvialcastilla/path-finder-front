@@ -5,6 +5,7 @@
 }
 .form {
     position: absolute;
+    top: 100px
 }
 leaflet-top leaflet-left{
     display: none
