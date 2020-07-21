@@ -1,7 +1,5 @@
 import React from "react";
 import "./FifthWindow.css";
-import {firebase} from "../../../firebase";
-import moment from 'moment';
 
 class FifthWindow extends React.Component {
     constructor() {
@@ -10,66 +8,37 @@ class FifthWindow extends React.Component {
             ubicacion: null,
             amountOfPeople:"",
         };
+        this.handleClick = this.handleClick.bind(this);
     }
+
+    handleClick = (e) => {
+        e.preventDefault();
+        console.log("pulse");
+        this.props.history.push("/database");
+    };
 
     handleClickFewSelected = (e) => {
         e.preventDefault();
         this.state.amountOfPeople="Poca";
+        alert(this.state.amountOfPeople); /* linea prueba chorra */
         localStorage.setItem("amountOfPeople",this.state.amountOfPeople) 
     };
 
     handleClickLotSelected = (e) => {
         e.preventDefault();
         this.state.amountOfPeople="Mucha";
+        alert(this.state.amountOfPeople); /* linea prueba chorra */
         localStorage.setItem("amountOfPeople",this.state.amountOfPeople) 
     };
 
     handleClickCrowdSelected = (e) => {
         e.preventDefault();
         this.state.amountOfPeople="Aglomeracion";
+        alert(this.state.amountOfPeople); /* linea prueba chorra */
         localStorage.setItem("amountOfPeople",this.state.amountOfPeople) 
     };
 
-    addData = async (e) => {
-        e.preventDefault()
-
-        try {
-          const db = firebase.firestore()
-
-          const newAlert = {
-              latitude: localStorage.getItem("latitude"), /* /^(-?[1-8]?d(?:.d{1,18})?|90(?:.0{1,18})?)$/ */
-              longitude: localStorage.getItem("longitude"), /* /^(-?(?:1[0-7]|[1-9])?d(?:.d{1,18})?|180(?:.0{1,18})?)$/ */
-              typeOfAlert: localStorage.getItem("typeOfAlert"), 
-              amountOfPeople: localStorage.getItem("amountOfPeople"),
-              timestamp:moment().format()
-          }
-
-          const dbLength= localStorage.getItem("dbLength");
-          const id= localStorage.getItem("dbLength");
-          console.log(id);
-          const data = await db.collection("alerts").doc(id).set(newAlert)
-          const dbLengthClean = localStorage.removeItem("dbLength");
-          const longitudeClean = localStorage.removeItem("longitude");
-          const latitudeClean = localStorage.removeItem("latitude");
-          const typeOfAlertClean = localStorage.removeItem("typeOfAlert");
-          const amountOfPeopleClean = localStorage.removeItem("amountOfPeople");
-
-        } catch (error){
-            console.log(error)
-        }
-        this.props.history.push("/mapa")
-      }
-
-      
-/*     handleClickCreate = (e) => {
-        e.preventDefault();
-        console.log("pulse");
-        const amountOfPeople= localStorage.getItem("amountOfPeople");
-        if(amountOfPeople==="Poca"||amountOfPeople==="Mucha"||amountOfPeople==="Aglomeracion"){this.props.history.push("/mapa")}
-        else{alert("Debes seleccionar una cantidad")}
-
-    };
-     */
+    /* frankiewinnie */
     render() {
         return (
             <div className="fifth-page">
@@ -129,13 +98,9 @@ class FifthWindow extends React.Component {
                         </div>
                     </div>
                     <div className="add-alert">
-
-                    <form onSubmit={this.addData}>
-                    <button className="add-alert-btn" type="submit">
-                    <p className="add-alert-p">Crear alerta</p>
+                    <button className="add-alert-btn" onClick={this.handleClick}>
+                        <p className="add-alert-p">Crear alerta</p>
                     </button>
-                    </form>
-
                     </div>
                 </div>
             </div >

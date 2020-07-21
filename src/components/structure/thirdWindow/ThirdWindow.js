@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Map, TileLayer } from "react-leaflet";
 import Routing from "../../routing/Routing";
 import Form from "../../form/Form";
@@ -14,12 +14,12 @@ class ThirdWindow extends React.Component {
       lng: "",
       zoom: 15,
       isMapInit: false,
+      resultapi: ''
     };
     this.handleClickAlert = this.handleClickAlert.bind(this);
     this.handleClickHelp = this.handleClickHelp.bind(this);
+    this.outputEvent = this.outputEvent.bind(this);
   }
-
-
 
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(
@@ -29,7 +29,6 @@ class ThirdWindow extends React.Component {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         });
-        console.log(position);
       }.bind(this)
     );
   }
@@ -37,9 +36,15 @@ class ThirdWindow extends React.Component {
   saveMap = (map) => {
     this.map = map;
     this.setState({
+      ...this.state,
       isMapInit: true,
     });
   };
+
+  outputEvent(resultapi) {
+    this.setState({ ...this.state, resultapi: resultapi });
+    console.log(this.state)
+  }
 
   handleClickHelp = (e) => {
     e.preventDefault();
@@ -50,42 +55,46 @@ class ThirdWindow extends React.Component {
   handleClickAlert = (e) => {
     e.preventDefault();
     console.log("pulse");
+    localStorage.setItem("latitude",this.state.lat) 
+    localStorage.setItem("longitude",this.state.lng)
     this.props.history.push("/alerta");
   };
   render() {
     const position = [this.state.lat, this.state.lng];
     return (
       <div>
-        <Form/>
-        <button onClick={this.handleClickHelp} className="help">
-        <img
-            src="img/Help/ButtonHelp/ButtonHelp.svg"
-            src="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey.png"
-            alt="logo"
-            srcSet="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey@2x.png 2x, img/ThirdWindow/PlusCircleGrey/PlusCircleGrey@3x.png 3x"
-            className="add-alert-img"
-          ></img>
-        </button>
-        <Map center={position} zoom={this.state.zoom} ref={this.saveMap}>
+
+        <Map center={position} zoom={this.state.zoom} ref={this.saveMap} className="map-box">
           <TileLayer
-            attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
             url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
           />
+ {/*          <Marker position={position}></Marker> */}
           {this.state.isMapInit && <Routing map={this.map} />}
         </Map>
-        <button onClick={this.handleClickAlert} className="add-alert">
-          <p className="add-alert-p">Añadir alerta</p>
+        <img
+          onClick={this.handleClickHelp}
+          src="img/Help/ButtonHelp/ButtonHelp.svg"
+          src="img/Help/ButtonHelp/ButtonHelp.svg"
+          alt="logo"
+          srcSet="img/Help/ButtonHelp/ButtonHelp.svg@2x.png 2x,img/Help/ButtonHelp/ButtonHelp.svg@3x.png 3x"
+          className="help"
+        ></img>
+                <div>
+          <Form className="form" clickHandler={this.outputEvent} />
+        </div>
+        <button onClick={this.handleClickAlert} className="add-alert-btn">
           <img
-            src="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey.svg"
-            src="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey.png"
+            src="img/ThirdWindow/CircleAddAlert/CircleAddAlert.svg"
+            src="img/ThirdWindow/CircleAddAlert/CircleAddAlert.png"
             alt="logo"
-            srcSet="img/ThirdWindow/PlusCircleGrey/PlusCircleGrey@2x.png 2x, img/ThirdWindow/PlusCircleGrey/PlusCircleGrey@3x.png 3x"
+            srcSet="img/ThirdWindow/CircleAddAlert/CircleAddAlert@2x.png 2x, img/ThirdWindow/CircleAddAlert/CircleAddAlert@3x.png 3x"
             className="add-alert-img"
-            ></img>
-            </button>
-          </div>
-        );
-      }
-    }
+          ></img>
+          <p className="add-alert-p">Añadir alerta</p>
+        </button>
+      </div>
+    );
+  }
+}
 
 export default ThirdWindow;
