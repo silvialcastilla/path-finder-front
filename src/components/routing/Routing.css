@@ -1,3 +1,7 @@
 .leaflet-marker-icon leaflet-zoom-animated leaflet-interactive leaflet-marker-draggable {
     display: none;
 }
+
+.leaflet-marker-icon leaflet-zoom-animated leaflet-interactive leaflet-marker-draggable {
+    display: none
+}

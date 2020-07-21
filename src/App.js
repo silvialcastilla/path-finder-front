@@ -6,6 +6,7 @@ import FourthWindow from './components/structure/fourthWindow/FourthWindow'
 import FifthWindow from "./components/structure/fifthWindow/FifthWindow"
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import HelpWindow from './components/helpWindow/HelpWindow';
+import StepsWindow from './components/stepsWindow/StepWindow.js'
 
 //import 'bootstrap/dist/css/bootstrap.css';
 //import './App.css'
@@ -20,6 +21,7 @@ function App() {
           <Route path="/mapa" component={ThirdWindow} />
           <Route path="/alerta" component={FourthWindow} />
           <Route path="/ayuda" component={HelpWindow} />
+          <Route path="/pasos" component={StepsWindow} />
           <Route path="/alerta-detalle" component={FifthWindow} />
         </Switch>
       </Router>

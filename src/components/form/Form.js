@@ -12,6 +12,7 @@ class Form extends React.Component {
       latdestiny: "",
       longdestiny: "",
       resultapi: "",
+      steps: "",
       showResults: false,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -47,7 +48,6 @@ class Form extends React.Component {
     }
 
     getCoord(origin, destiny).then((data) => {
-      console.log(data);
       this.setState({
         ...this.state,
         latorigin: data.bbox[0],
@@ -74,11 +74,12 @@ class Form extends React.Component {
       console.log(data)
       this.setState({
         ...this.state,
-        resultapi: data.features[0].geometry.coordinates,
+        resultapi: data.features[0].geometry.coordinates, 
+        steps: data.features[0].properties.segments[0]
       });
       this.setState({ ...this.state, showResults: false });
     }).then(
-      () => this.props.clickHandler(this.state.resultapi)
+      () => this.props.clickHandler(this.state.resultapi, this.state.steps)
     );
   }
 

@@ -14,7 +14,8 @@ class ThirdWindow extends React.Component {
       lng: "",
       zoom: 15,
       isMapInit: false,
-      resultapi: ''
+      resultapi: '',
+      steps: ''
     };
     this.handleClickAlert = this.handleClickAlert.bind(this);
     this.handleClickHelp = this.handleClickHelp.bind(this);
@@ -41,21 +42,23 @@ class ThirdWindow extends React.Component {
     });
   };
 
-  outputEvent(resultapi) {
-    this.setState({ ...this.state, resultapi: resultapi });
+  outputEvent(resultapi,steps) {
+    this.setState({ ...this.state, resultapi: resultapi, steps: steps });
     console.log(this.state)
   }
 
   handleClickHelp = (e) => {
     e.preventDefault();
-    console.log("pulse");
     this.props.history.push("/ayuda");
   };
 
   handleClickAlert = (e) => {
     e.preventDefault();
-    console.log("pulse");
     this.props.history.push("/alerta");
+  };
+  handleClickSteps = (e) => {
+    e.preventDefault();
+    this.props.history.push("/pasos");
   };
   render() {
     const position = [this.state.lat, this.state.lng];
@@ -87,6 +90,16 @@ class ThirdWindow extends React.Component {
             className="add-alert-img"
           ></img>
           <p className="add-alert-p">Añadir alerta</p>
+        </button>
+        <button onClick={this.handleClickSteps} steps={this.state.steps} className="add-alert-btn">
+          <img
+            src="img/ThirdWindow/CircleAddAlert/CircleAddAlert.svg"
+            src="img/ThirdWindow/CircleAddAlert/CircleAddAlert.png"
+            alt="logo"
+            srcSet="img/ThirdWindow/CircleAddAlert/CircleAddAlert@2x.png 2x, img/ThirdWindow/CircleAddAlert/CircleAddAlert@3x.png 3x"
+            className="add-alert-img"
+          ></img>
+          <p className="add-alert-p">Pasos</p>
         </button>
       </div>
     );
