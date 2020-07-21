@@ -1,14 +1,24 @@
 import React from "react";
 import "./FourthWindow.css";
+import {firebase} from "../../../firebase";
+
 
 class FourthWindow extends React.Component {
     constructor() {
         super();
         this.state = {
             ubicacion: null,
+            typeOfAlert:"",
         };
         this.handleClickBack = this.handleClickBack.bind(this);
         this.handleClickCreate = this.handleClickCreate.bind(this)
+        
+        const db = firebase.firestore()
+        db.collection('alerts').get().then(
+          (snapshot) => localStorage.setItem("dbLength",snapshot.docs.length)
+        );
+        const id= localStorage.getItem("dbLength");
+        console.log(id);
     }
 
     handleClickBack = (e) => {
@@ -20,12 +30,44 @@ class FourthWindow extends React.Component {
     handleClickCreate = (e) => {
         e.preventDefault();
         console.log("pulse");
-        this.props.history.push("/alerta-detalle");
+        const typeOfAlert= localStorage.getItem("typeOfAlert");
+        if(typeOfAlert==="Manifestacion"||typeOfAlert==="Evento"||typeOfAlert==="Obra"||typeOfAlert==="Otro"){this.props.history.push("/alerta-detalle")}
+        else{alert("Debes seleccionar un tipo de alerta")}
+
     };
+
+    handleClickManifestationSelected = (e) => {
+        e.preventDefault();
+        this.state.typeOfAlert="Manifestacion";
+        localStorage.setItem("typeOfAlert",this.state.typeOfAlert) 
+    };
+
+    handleClickEventSelected = (e) => {
+        e.preventDefault();
+        this.state.typeOfAlert="Evento"
+        localStorage.setItem("typeOfAlert",this.state.typeOfAlert) 
+    };
+  
+    handleClickBuildingSelected = (e) => {
+        e.preventDefault();
+        this.state.typeOfAlert="Obra";
+        localStorage.setItem("typeOfAlert",this.state.typeOfAlert) 
+    };
+  
+    handleClickOtherSelected = (e) => {
+        e.preventDefault();
+        this.state.typeOfAlert="Otro";
+        localStorage.setItem("typeOfAlert",this.state.typeOfAlert) 
+    };
+
+/*     function guardar_localstorage() {
+
+    } */
+
 
     render() {
         return (
-            <div className="fourth-page">
+            <div className="fourth-page" >
                 <div className="back-alert" onClick={this.handleClickBack}>
                     <img
                         src={["img/FourthWindow/LeftArrow/Arrow.svg","img/FourthWindow/LeftArrow/Arrow.png"]}
@@ -47,7 +89,7 @@ class FourthWindow extends React.Component {
                                         alt="logo"
                                         srcSet="img/FourthWindow/Manifestacion/Manifestacion@2x.png 2x, img/FourthWindow/Manifestacion/Manifestacion@3x.png 3x"
                                         className="first-block-manifestacion-img"
-                                    ></img>
+                                        onClick={this.handleClickManifestationSelected}></img>
                                 </div>
                                 <p className="first-block-manifestacion-p"> Manifestación </p>
                             </div>
@@ -58,7 +100,7 @@ class FourthWindow extends React.Component {
                                         alt="logo"
                                         srcSet="img/FourthWindow/Evento/Evento@2x.png 2x, img/FourthWindow/Evento/Evento@3x.png 3x"
                                         className="first-block-evento-img"
-                                    ></img>
+                                        onClick={this.handleClickEventSelected}></img>
                                 </div>
                                 <p className="first-block-evento-p"> Evento </p>
                             </div>
@@ -72,6 +114,7 @@ class FourthWindow extends React.Component {
                                         alt="logo"
                                         srcSet="img/FourthWindow/Obras/Obras@2x.png 2x, img/FourthWindow/Obras/Obras@3x.png 3x"
                                         className="second-block-obra-img"
+                                        onClick={this.handleClickBuildingSelected}
                                     ></img>
                                 </div>
                                 <p className="second-block-obra-p"> Obra </p>
@@ -84,6 +127,7 @@ class FourthWindow extends React.Component {
                                         alt="logo"
                                         srcSet="img/FourthWindow/Otros/Otros@2x.png 2x, img/FourthWindow/Otros/Otros@3x.png 3x"
                                         className="second-block-otro-img"
+                                        onClick={this.handleClickOtherSelected}
                                     ></img>
                                 </div>
                                 <p className="second-block-otro-p"> Otro </p>

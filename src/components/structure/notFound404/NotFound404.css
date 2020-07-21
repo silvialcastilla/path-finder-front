@@ -1,0 +1,121 @@
+
+/*más de 750*/
+@media (min-width: 750px) {
+    .notFound-404{
+        opacity: 0%;
+    }
+    .errorBody{
+        background-image:url("img/NotFound404/movil@2x.png"); 
+        background-repeat: no-repeat;
+    }
+}
+
+/*más de 768*/
+@media (min-width: 768px) {
+    .notFound-404{
+        opacity: 0%;
+    }
+    .errorBody{
+        background-image:url("img/NotFound404/portrait.png"); 
+        background-repeat: no-repeat;
+    }
+}
+
+/*más de 1125*/
+@media (min-width: 1125px) {
+    .notFound-404{
+        opacity: 0%;
+    }
+    .errorBody{
+        background-image:url("img/NotFound404/movil@3x.png"); 
+        background-repeat: no-repeat;
+    }
+}
+
+/*más de 1024*/
+@media (min-width: 1024px) {
+    .notFound-404{
+        opacity: 0%;
+    }
+    .errorBody{
+        background-image:url("img/NotFound404/landscape.png"); 
+        background-repeat: no-repeat;
+    }
+}
+
+/*más de 1536*/
+@media (min-width: 1536px) {
+    .notFound-404{
+        opacity: 0%;
+    }
+    .errorBody{
+        background-image:url("img/NotFound404/portrait@2x.png"); 
+        background-repeat: no-repeat;
+    }
+}
+
+/*más de 1440*/
+@media (min-width: 1440px) {
+    .notFound-404{
+        opacity: 0%;
+    }
+    .errorBody{
+        background-image:url("img/NotFound404/desktop.png"); 
+        background-repeat: no-repeat;
+    }
+}
+
+/*más de 2048*/
+@media (min-width: 2048px) {
+    .notFound-404{
+        opacity: 0%;
+    }
+    .errorBody{
+        background-image:url("img/NotFound404/landscape@2x.png"); 
+        background-repeat: no-repeat;
+    }
+}
+
+/*más de 2304*/
+@media (min-width: 2304px) {
+    .notFound-404{
+        opacity: 0%;
+    }
+    .errorBody{
+        background-image:url("img/NotFound404/portrait@3x.png"); 
+        background-repeat: no-repeat;
+    }
+}
+
+/*más de 2880*/
+@media (min-width: 2880px) {
+    .notFound-404{
+        opacity: 0%;
+    }
+    .errorBody{
+        background-image:url("img/NotFound404/desktop@2x.png"); 
+        background-repeat: no-repeat;
+    }
+}
+
+/*más de 3072*/
+@media (min-width: 3072px) {
+    .notFound-404{
+        opacity: 0%;
+    }
+    .errorBody{
+        background-image:url("img/NotFound404/landscape@3x.png"); 
+        background-repeat: no-repeat;
+    }
+}
+
+/*más de 4320*/
+@media (min-width: 4320px) {
+    .notFound-404{
+        opacity: 0%;
+    }
+    .errorBody{
+        background-image:url("img/NotFound404/desktop@3x.png"); 
+        background-repeat: no-repeat;
+    }
+}

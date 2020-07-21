@@ -7,11 +7,13 @@ import FifthWindow from "./components/structure/fifthWindow/FifthWindow"
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import HelpWindow from './components/helpWindow/HelpWindow';
 import StepsWindow from './components/stepsWindow/StepWindow.js'
+import NotFound from "./components/structure/notFound404/NotFound404";
 
 //import 'bootstrap/dist/css/bootstrap.css';
 //import './App.css'
 
 function App() {
+
   return (
     <div>
       <Router>
@@ -23,8 +25,11 @@ function App() {
           <Route path="/ayuda" component={HelpWindow} />
           <Route path="/pasos" component={StepsWindow} />
           <Route path="/alerta-detalle" component={FifthWindow} />
+          <Route path="/navbar" component={Navbar} />
+          <Route component={NotFound}/>
         </Switch>
-      </Router>
+      </Router> 
+
     </div>
   );
 }

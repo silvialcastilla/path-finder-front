@@ -34,6 +34,19 @@ class ThirdWindow extends React.Component {
     );
   }
 
+  saveMap = (map) => {
+    this.map = map;
+    this.setState({
+      ...this.state,
+      isMapInit: true,
+    });
+  };
+
+  outputEvent(resultapi) {
+    this.setState({ ...this.state, resultapi: resultapi });
+    console.log(this.state)
+  }
+
   handleClickHelp = (e) => {
     e.preventDefault();
     this.props.history.push("/ayuda");
@@ -41,6 +54,9 @@ class ThirdWindow extends React.Component {
 
   handleClickAlert = (e) => {
     e.preventDefault();
+    console.log("pulse");
+    localStorage.setItem("latitude",this.state.lat) 
+    localStorage.setItem("longitude",this.state.lng)
     this.props.history.push("/alerta");
   };
   handleClickSteps = (e) => {
@@ -112,7 +128,7 @@ class ThirdWindow extends React.Component {
             srcSet="img/ThirdWindow/CircleAddAlert/CircleAddAlert@2x.png 2x, img/ThirdWindow/CircleAddAlert/CircleAddAlert@3x.png 3x"
             className="add-alert-img"
           ></img>
-          <p className="add-alert-p">Pasos</p>
+          <p className="add-alert-p">Añadir alerta</p>
         </button>
       </div>
     );

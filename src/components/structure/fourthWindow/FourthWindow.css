@@ -16,7 +16,7 @@
     padding-left: 20px;
 }
 .back-alert-p {
-    width: 134px;
+    width: 155px;
     height: 29px;
     font-family: Lato;
     font-size: 24px;
@@ -55,12 +55,16 @@
 .alerts-block {
     height: 384px;
     width: 375px;
+    display: flex;
+    flex-direction: column;
 }
 
 .one-block{
     display: flex;
     padding-top: 30px;
     padding-bottom: 27.8px;
+    justify-content: space-evenly;
+    margin-left: -20%;
 }
 .manifestacion {
     padding-left: 44px;
@@ -135,7 +139,8 @@
 .two-block{
     display: flex;
     padding-top: 68px;
-    padding-bottom: 12.2px;
+    justify-content: space-evenly;
+    margin-left: -20%;
 }
 .obra {
     padding-left: 44px;
@@ -234,4 +239,19 @@
     line-height: 1;
     letter-spacing: 0.75px;
     color: #636871;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.first-block-manifestacion-circle:active, .first-block-evento-circle:active, .second-block-obra-circle:active, .second-block-otro-circle:active{
+    box-shadow: inset -4px -4px 4px 0 rgba(145, 150, 159, 0.1), inset 4px 4px 4px 0 rgba(255, 151, 149, 0.3);
+    background-color: #fff9f9;
+    border-radius: 100%;
+}
+
+.add-alert-btn:active {
+    border-radius: 16px;
+    background-color: #c3000c;
+    box-shadow: inset 10px 10px 10px -4px rgba(0,0,0,0.43);
+  }
