@@ -1,6 +1,6 @@
 import React from "react";
 import { Map, TileLayer } from "react-leaflet";
-import Routing from "../../routing/Routing";
+import Routing from '../../routing/Routing'
 import Form from "../../form/Form";
 
 import "./ThirdWindow.css";
@@ -34,19 +34,6 @@ class ThirdWindow extends React.Component {
     );
   }
 
-  saveMap = (map) => {
-    this.map = map;
-    this.setState({
-      ...this.state,
-      isMapInit: true,
-    });
-  };
-
-  outputEvent(resultapi,steps) {
-    this.setState({ ...this.state, resultapi: resultapi, steps: steps });
-    console.log(this.state)
-  }
-
   handleClickHelp = (e) => {
     e.preventDefault();
     this.props.history.push("/ayuda");
@@ -60,15 +47,41 @@ class ThirdWindow extends React.Component {
     e.preventDefault();
     this.props.history.push("/pasos");
   };
+
+
+  saveMap = (map) => {
+    this.map = map;
+    this.setState({
+      ...this.state,
+      isMapInit: true,
+    });
+  };
+
+  /*printResult = (results) =>{
+    this.state.resultapi = results 
+    results.map(item => {
+      return (
+        item[1], item[0]
+      )
+    })
+  } */
+
+  outputEvent(resultapi, steps) {
+    this.setState({ ...this.state, resultapi: resultapi, steps: steps });
+    console.log(this.state)
+  }
+
+
   render() {
     const position = [this.state.lat, this.state.lng];
+    const result = this.state.resultapi
     return (
       <div>
         <Map center={position} zoom={this.state.zoom} ref={this.saveMap} className="map-box">
           <TileLayer
             url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
           />
-          {this.state.isMapInit && <Routing map={this.map} resultapi={this.state.resultapi} />}
+           {this.state.isMapInit && <Routing map={this.map} resultapi={this.state.resultapi}/>} 
         </Map>
         <img
           onClick={this.handleClickHelp}
@@ -78,7 +91,7 @@ class ThirdWindow extends React.Component {
           srcSet="img/Help/ButtonHelp/ButtonHelp.svg@2x.png 2x,img/Help/ButtonHelp/ButtonHelp.svg@3x.png 3x"
           className="help"
         ></img>
-                <div>
+        <div>
           <Form className="form" clickHandler={this.outputEvent} />
         </div>
         <button onClick={this.handleClickAlert} className="add-alert-btn">
