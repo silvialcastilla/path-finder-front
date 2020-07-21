@@ -7,9 +7,12 @@ import './Routing.css'
 
 class Routing extends MapLayer {
   createLeafletElement() {
-    const { map } = this.props;
+    const { map, resultapi } = this.props;
+    console.log(map)
+    console.log(resultapi)
     let leafletElement = L.Routing.control({
-      waypoints: [L.latLng()]
+      waypoints: [ 
+]
     }).addTo(map.leafletElement);
     return leafletElement.getPlan();
   }

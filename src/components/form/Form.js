@@ -71,6 +71,7 @@ class Form extends React.Component {
     }
 
     takeCoord(origin, destiny).then((data) => {
+      console.log(data)
       this.setState({
         ...this.state,
         resultapi: data.features[0].geometry.coordinates,

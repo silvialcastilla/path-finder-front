@@ -61,12 +61,11 @@ class ThirdWindow extends React.Component {
     const position = [this.state.lat, this.state.lng];
     return (
       <div>
-
         <Map center={position} zoom={this.state.zoom} ref={this.saveMap} className="map-box">
           <TileLayer
             url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
           />
-          {this.state.isMapInit && <Routing map={this.map} />}
+          {this.state.isMapInit && <Routing map={this.map} resultapi={this.state.resultapi} />}
         </Map>
         <img
           onClick={this.handleClickHelp}
