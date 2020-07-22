@@ -28,33 +28,25 @@ leaflet-control-zoom leaflet-bar leaflet-control {
     left: 307px
 }
 
-.button-alert {
+.add-alert-btn {
     width: 320px;
     height: 52px;
     border-radius: 16px;
     background-color: #ff1833;
+    display: flex;
+    justify-content: center;
     position: absolute;
     top: 567px;
     left: 27px;
-    display: flex;
-    flex-direction: center;
-    align-items: center;
-
 }
-.button-alert-div{
-    display: flex;
-    flex-direction: center;
-    align-items: center;
-    padding-left: 90px;
-}
-.button-alert-img {
+.add-alert-img {
     width: 24px;
     height: 24px;
     object-fit: contain;
+    flex-grow: 1;  
 }
 
-.button-alert-p {
-    padding: 16px;
+.add-alert-p {
     font-family: Lato;
     font-size: 16px;
     font-weight: bold;
@@ -62,8 +54,8 @@ leaflet-control-zoom leaflet-bar leaflet-control {
     font-style: normal;
     line-height: 1;
     letter-spacing: 0.75px;
-    color: #fff9f9;    
-    margin: 0
+    color: #fff9f9;
+    flex-grow: 1;  
 }
 
 .leaflet-routing-alternatives-container{

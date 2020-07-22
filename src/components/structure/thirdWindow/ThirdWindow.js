@@ -1,6 +1,6 @@
 import React from "react";
-import { Map, TileLayer, Polyline, Marker, Tooltip, Popup } from "react-leaflet";
-import Routing from "../../routing/Routing";
+import { Map, TileLayer } from "react-leaflet";
+import Routing from '../../routing/Routing'
 import Form from "../../form/Form";
 
 import "./ThirdWindow.css";
@@ -14,8 +14,8 @@ class ThirdWindow extends React.Component {
       lng: "",
       zoom: 15,
       isMapInit: false,
-      resultapi: "",
-      steps: "",
+      resultapi: '',
+      steps: ''
     };
     this.handleClickAlert = this.handleClickAlert.bind(this);
     this.handleClickHelp = this.handleClickHelp.bind(this);
@@ -44,7 +44,7 @@ class ThirdWindow extends React.Component {
 
   outputEvent(resultapi) {
     this.setState({ ...this.state, resultapi: resultapi });
-    console.log(this.state);
+    console.log(this.state)
   }
 
   handleClickHelp = (e) => {
@@ -55,14 +55,15 @@ class ThirdWindow extends React.Component {
   handleClickAlert = (e) => {
     e.preventDefault();
     console.log("pulse");
-    localStorage.setItem("latitude", this.state.lat);
-    localStorage.setItem("longitude", this.state.lng);
+    localStorage.setItem("latitude",this.state.lat) 
+    localStorage.setItem("longitude",this.state.lng)
     this.props.history.push("/alerta");
   };
   handleClickSteps = (e) => {
     e.preventDefault();
     this.props.history.push("/pasos");
   };
+
 
   saveMap = (map) => {
     this.map = map;
@@ -81,42 +82,27 @@ class ThirdWindow extends React.Component {
     })
   } */
 
-
   outputEvent(resultapi, steps) {
     this.setState({ ...this.state, resultapi: resultapi, steps: steps });
-    console.log(this.state);
+    console.log(this.state)
   }
+
 
   render() {
     const position = [this.state.lat, this.state.lng];
-
+    const result = this.state.resultapi
     return (
       <div>
-        <Map
-          center={position}
-          zoom={this.state.zoom}
-          ref={this.saveMap}
-          className="map-box"
-        >
-          <TileLayer url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png" />
-
-          <Marker position={position}>
-            <Tooltip direction="top" opacity={1}>
-              <span> Tooltip del marcador de ejemplo </span>
-            </Tooltip>
-
-            <Popup>
-              <span> Popup del marcador de ejemplo </span>
-            </Popup>
-          </Marker>
-
-          <Polyline color="lime" positions={this.state.resultapi} />
-
+        <Map center={position} zoom={this.state.zoom} ref={this.saveMap} className="map-box">
+          <TileLayer
+            url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
+          />
+           {this.state.isMapInit && <Routing map={this.map} resultapi={this.state.resultapi}/>} 
         </Map>
         <img
           onClick={this.handleClickHelp}
           src="img/Help/ButtonHelp/ButtonHelp.svg"
-          src="img/Help/ButtonHelp/ButtonHelp.png"
+          src="img/Help/ButtonHelp/ButtonHelp.svg"
           alt="logo"
           srcSet="img/Help/ButtonHelp/ButtonHelp.svg@2x.png 2x,img/Help/ButtonHelp/ButtonHelp.svg@3x.png 3x"
           className="help"
@@ -124,17 +110,25 @@ class ThirdWindow extends React.Component {
         <div>
           <Form className="form" clickHandler={this.outputEvent} />
         </div>
-        <button onClick={this.handleClickAlert} className="button-alert">
-          <div className="button-alert-div">
-            <img
-              src="img/ThirdWindow/CircleAddAlert/CircleAddAlert.svg"
-              src="img/ThirdWindow/CircleAddAlert/CircleAddAlert.png"
-              alt="logo"
-              srcSet="img/ThirdWindow/CircleAddAlert/CircleAddAlert@2x.png 2x, img/ThirdWindow/CircleAddAlert/CircleAddAlert@3x.png 3x"
-              className="button-alert-img"
-            ></img>
-            <p className="button-alert-p">Añadir alerta</p>
-          </div>
+        <button onClick={this.handleClickAlert} className="add-alert-btn">
+          <img
+            src="img/ThirdWindow/CircleAddAlert/CircleAddAlert.svg"
+            src="img/ThirdWindow/CircleAddAlert/CircleAddAlert.png"
+            alt="logo"
+            srcSet="img/ThirdWindow/CircleAddAlert/CircleAddAlert@2x.png 2x, img/ThirdWindow/CircleAddAlert/CircleAddAlert@3x.png 3x"
+            className="add-alert-img"
+          ></img>
+          <p className="add-alert-p">Añadir alerta</p>
+        </button>
+        <button onClick={this.handleClickSteps} steps={this.state.steps} className="add-alert-btn">
+          <img
+            src="img/ThirdWindow/CircleAddAlert/CircleAddAlert.svg"
+            src="img/ThirdWindow/CircleAddAlert/CircleAddAlert.png"
+            alt="logo"
+            srcSet="img/ThirdWindow/CircleAddAlert/CircleAddAlert@2x.png 2x, img/ThirdWindow/CircleAddAlert/CircleAddAlert@3x.png 3x"
+            className="add-alert-img"
+          ></img>
+          <p className="add-alert-p">Añadir alerta</p>
         </button>
       </div>
     );

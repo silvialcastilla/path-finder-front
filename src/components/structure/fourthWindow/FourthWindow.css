@@ -11,8 +11,8 @@
     padding-bottom: 25px;
 }
 .back-alert-img {
-    width: 24px;
-    height: 24px;
+    width: 40px;
+    height: 30px;
     padding-left: 20px;
 }
 .back-alert-p {
@@ -40,6 +40,7 @@
     box-shadow: 2px 2px 4px 0 rgba(32, 35, 39, 0.25);
 }
 .type-alert-p {
+    margin-top: 5%;
     width: 209px;
     height: 41px;
     font-family: Lato;
