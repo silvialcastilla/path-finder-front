@@ -8,8 +8,8 @@ import {
   Popup,
   Polygon,
 } from "react-leaflet";
+import L from "leaflet";
 import Routing from "../../routing/Routing";
-import DraggablePolyline from "react-leaflet-draggable-polyline";
 import Form from "../../form/Form";
 
 import "./ThirdWindow.css";
@@ -108,13 +108,7 @@ class ThirdWindow extends React.Component {
         >
           <TileLayer url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png" />
 
-          <Polygon color="purple" positions={this.state.resultapi} />
-          <DraggablePolyline
-            positions={[
-              [43.6, 1.44],
-              [43.61, 1.3],
-            ]}
-          />
+          <Polygon color="purple" positions={      result = resultapi.map(item => L.latLng(item[1], item[0]))} />
         </Map>
         <img
           onClick={this.handleClickHelp}
