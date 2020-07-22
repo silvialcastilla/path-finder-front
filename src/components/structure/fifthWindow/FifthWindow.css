@@ -201,3 +201,8 @@ padding-top: 10%;
     background-color: #fff9f9;
     border-radius: 100%;
 }
+
+.upper-block {
+    display: flex;
+    justify-content: center;
+}

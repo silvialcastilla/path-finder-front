@@ -25,7 +25,6 @@ function App() {
           <Route path="/ayuda" component={HelpWindow} />
           <Route path="/pasos" component={StepsWindow} />
           <Route path="/alerta-detalle" component={FifthWindow} />
-          <Route path="/navbar" component={Navbar} />
           <Route component={NotFound}/>
         </Switch>
       </Router> 

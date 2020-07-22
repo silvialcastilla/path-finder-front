@@ -1,5 +1,5 @@
 import React from "react";
-import { Map, TileLayer } from "react-leaflet";
+import { Map, TileLayer, Polyline } from "react-leaflet";
 import Routing from '../../routing/Routing'
 import Form from "../../form/Form";
 
@@ -90,18 +90,19 @@ class ThirdWindow extends React.Component {
 
   render() {
     const position = [this.state.lat, this.state.lng];
-    const result = this.state.resultapi
+  
     return (
       <div>
         <Map center={position} zoom={this.state.zoom} ref={this.saveMap} className="map-box">
           <TileLayer
             url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
           />
+
            {this.state.isMapInit && <Routing map={this.map} resultapi={this.state.resultapi}/>} 
         </Map>
         <img
           onClick={this.handleClickHelp}
-          src="img/Help/ButtonHelp/ButtonHelp.svg"
+          src="img/Help/ButtonHelp/ButtonHelp.png"
           src="img/Help/ButtonHelp/ButtonHelp.svg"
           alt="logo"
           srcSet="img/Help/ButtonHelp/ButtonHelp.svg@2x.png 2x,img/Help/ButtonHelp/ButtonHelp.svg@3x.png 3x"
@@ -110,25 +111,17 @@ class ThirdWindow extends React.Component {
         <div>
           <Form className="form" clickHandler={this.outputEvent} />
         </div>
-        <button onClick={this.handleClickAlert} className="add-alert-btn">
+        <button onClick={this.handleClickAlert} className="button-alert">
+        <div className="button-alert-div">
           <img
             src="img/ThirdWindow/CircleAddAlert/CircleAddAlert.svg"
             src="img/ThirdWindow/CircleAddAlert/CircleAddAlert.png"
             alt="logo"
             srcSet="img/ThirdWindow/CircleAddAlert/CircleAddAlert@2x.png 2x, img/ThirdWindow/CircleAddAlert/CircleAddAlert@3x.png 3x"
-            className="add-alert-img"
+            className="button-alert-img"
           ></img>
-          <p className="add-alert-p">Añadir alerta</p>
-        </button>
-        <button onClick={this.handleClickSteps} steps={this.state.steps} className="add-alert-btn">
-          <img
-            src="img/ThirdWindow/CircleAddAlert/CircleAddAlert.svg"
-            src="img/ThirdWindow/CircleAddAlert/CircleAddAlert.png"
-            alt="logo"
-            srcSet="img/ThirdWindow/CircleAddAlert/CircleAddAlert@2x.png 2x, img/ThirdWindow/CircleAddAlert/CircleAddAlert@3x.png 3x"
-            className="add-alert-img"
-          ></img>
-          <p className="add-alert-p">Añadir alerta</p>
+          <p className="button-alert-p">Añadir alerta</p>
+          </div>
         </button>
       </div>
     );

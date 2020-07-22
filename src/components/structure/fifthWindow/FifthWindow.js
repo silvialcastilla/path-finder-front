@@ -75,7 +75,8 @@ class FifthWindow extends React.Component {
             <div className="fifth-page">
                 <div className="back-alert" onClick={this.handleClick}>
                     <img
-                        src={["img/FifthWindow/LeftArrow/Arrow.svg","img/FifthWindow/LeftArrow/Arrow.png"]}
+                        src="img/FifthWindow/LeftArrow/Arrow.svg"
+                        src="img/FifthWindow/LeftArrow/Arrow.png"
                         alt="logo"
                         srcSet="img/FifthWindow/LeftArrow/Arrow@2x.png 2x, img/FifthWindow/LeftArrow/Arrow@3x.png 3x"
                         className="back-alert-img"
@@ -86,7 +87,7 @@ class FifthWindow extends React.Component {
                 <div className="type-alert">
                     <p className="type-alert-p"> Tipo de alerta </p>
                     <div className="alerts-block">
-                        <div className="first-block">
+                        <div className="upper-block">
                             <div className="delete">
                                 <div className="first-block-delete-circle">
                                     <img

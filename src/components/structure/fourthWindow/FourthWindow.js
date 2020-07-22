@@ -70,7 +70,8 @@ class FourthWindow extends React.Component {
             <div className="fourth-page" >
                 <div className="back-alert" onClick={this.handleClickBack}>
                     <img
-                        src={["img/FourthWindow/LeftArrow/Arrow.svg","img/FourthWindow/LeftArrow/Arrow.png"]}
+                        src="img/FourthWindow/LeftArrow/Arrow.svg"
+                        src="img/FourthWindow/LeftArrow/Arrow.png"
                         alt="logo"
                         srcSet="img/FourthWindow/LeftArrow/Arrow@2x.png 2x, img/FourthWindow/LeftArrow/Arrow@3x.png 3x"
                         className="back-alert-img"
@@ -85,7 +86,8 @@ class FourthWindow extends React.Component {
                             <div className="manifestacion">
                                 <div className="first-block-manifestacion-circle">
                                     <img
-                                        src={["img/FourthWindow/Manifestacion/Manifestacion.svg","img/FourthWindow/Manifestacion/Manifestacion.png"]}
+                                        src="img/FourthWindow/Manifestacion/Manifestacion.svg"
+                                        src="img/FourthWindow/Manifestacion/Manifestacion.png"
                                         alt="logo"
                                         srcSet="img/FourthWindow/Manifestacion/Manifestacion@2x.png 2x, img/FourthWindow/Manifestacion/Manifestacion@3x.png 3x"
                                         className="first-block-manifestacion-img"
@@ -96,7 +98,8 @@ class FourthWindow extends React.Component {
                             <div className="evento">
                                 <div className="first-block-evento-circle">
                                     <img
-                                        src={["img/FourthWindow/Evento/Evento.svg", "img/FourthWindow/Evento/Evento.png"]}
+                                        src="img/FourthWindow/Evento/Evento.svg"
+                                        src= "img/FourthWindow/Evento/Evento.png"
                                         alt="logo"
                                         srcSet="img/FourthWindow/Evento/Evento@2x.png 2x, img/FourthWindow/Evento/Evento@3x.png 3x"
                                         className="first-block-evento-img"
