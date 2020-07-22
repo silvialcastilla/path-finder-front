@@ -1,6 +1,15 @@
 import React from "react";
-import { Map, TileLayer, Polyline, Marker, Tooltip, Popup } from "react-leaflet";
+import {
+  Map,
+  TileLayer,
+  Polyline,
+  Marker,
+  Tooltip,
+  Popup,
+  Polygon,
+} from "react-leaflet";
 import Routing from "../../routing/Routing";
+import DraggablePolyline from "react-leaflet-draggable-polyline";
 import Form from "../../form/Form";
 
 import "./ThirdWindow.css";
@@ -81,7 +90,6 @@ class ThirdWindow extends React.Component {
     })
   } */
 
-
   outputEvent(resultapi, steps) {
     this.setState({ ...this.state, resultapi: resultapi, steps: steps });
     console.log(this.state);
@@ -100,18 +108,13 @@ class ThirdWindow extends React.Component {
         >
           <TileLayer url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png" />
 
-          <Marker position={position}>
-            <Tooltip direction="top" opacity={1}>
-              <span> Tooltip del marcador de ejemplo </span>
-            </Tooltip>
-
-            <Popup>
-              <span> Popup del marcador de ejemplo </span>
-            </Popup>
-          </Marker>
-
-          <Polyline color="lime" positions={this.state.resultapi} />
-
+          <Polygon color="purple" positions={this.state.resultapi} />
+          <DraggablePolyline
+            positions={[
+              [43.6, 1.44],
+              [43.61, 1.3],
+            ]}
+          />
         </Map>
         <img
           onClick={this.handleClickHelp}
