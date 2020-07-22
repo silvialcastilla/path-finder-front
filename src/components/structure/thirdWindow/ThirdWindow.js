@@ -9,7 +9,7 @@ import {
   Polygon,
 } from "react-leaflet";
 import L from "leaflet";
-import Routing from "../../routing/Routing";
+//import Routing from "../../routing/Routing";
 import Form from "../../form/Form";
 
 import "./ThirdWindow.css";
@@ -107,7 +107,10 @@ class ThirdWindow extends React.Component {
           className="map-box"
         >
           <TileLayer url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png" />
-          
+
+          <Polyline color="blue" positions={this.state.resultapi !== '' ? 
+          this.state.resultapi.map(item => L.latLng(item[1], item[0])) : []
+          } />
         </Map>
         <img
           onClick={this.handleClickHelp}
