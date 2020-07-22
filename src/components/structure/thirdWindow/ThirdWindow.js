@@ -1,6 +1,15 @@
 import React from "react";
-import { Map, TileLayer } from "react-leaflet";
-import Routing from '../../routing/Routing'
+import {
+  Map,
+  TileLayer,
+  Polyline,
+  Marker,
+  Tooltip,
+  Popup,
+  Polygon,
+} from "react-leaflet";
+import Routing from "../../routing/Routing";
+import DraggablePolyline from "react-leaflet-draggable-polyline";
 import Form from "../../form/Form";
 
 import "./ThirdWindow.css";
@@ -93,11 +102,29 @@ class ThirdWindow extends React.Component {
     const result = this.state.resultapi
     return (
       <div>
+<<<<<<< HEAD
         <Map center={position} zoom={this.state.zoom} ref={this.saveMap} className="map-box">
           <TileLayer
             url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png"
           />
            {this.state.isMapInit && <Routing map={this.map} resultapi={this.state.resultapi}/>} 
+=======
+        <Map
+          center={position}
+          zoom={this.state.zoom}
+          ref={this.saveMap}
+          className="map-box"
+        >
+          <TileLayer url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png" />
+
+          <Polygon color="purple" positions={this.state.resultapi} />
+          <DraggablePolyline
+            positions={[
+              [43.6, 1.44],
+              [43.61, 1.3],
+            ]}
+          />
+>>>>>>> efbf21724f636b68f61828d8cfd3ff4662237c75
         </Map>
         <img
           onClick={this.handleClickHelp}
