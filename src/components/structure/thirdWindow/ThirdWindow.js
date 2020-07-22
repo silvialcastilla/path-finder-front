@@ -107,8 +107,6 @@ class ThirdWindow extends React.Component {
           className="map-box"
         >
           <TileLayer url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png" />
-
-          <Polygon color="purple" positions={      result = resultapi.map(item => L.latLng(item[1], item[0]))} />
         </Map>
         <img
           onClick={this.handleClickHelp}
