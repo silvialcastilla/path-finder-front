@@ -15,19 +15,37 @@ class FifthWindow extends React.Component {
     handleClickFewSelected = (e) => {
         e.preventDefault();
         this.state.amountOfPeople="Poca";
-        localStorage.setItem("amountOfPeople",this.state.amountOfPeople) 
+        localStorage.setItem("amountOfPeople",this.state.amountOfPeople);
+        document.getElementById("few").style.backgroundColor = "#fff9f9";
+        document.getElementById("few").style.boxShadow = "inset -4px -4px 4px 0 rgba(145, 150, 159, 0.1), inset 4px 4px 4px 0 rgba(255, 151, 149, 0.3)";
+        document.getElementById("lot").style.backgroundColor = "#ffeaea";
+        document.getElementById("lot").style.boxShadow = "2px 2px 4px 0 rgba(32, 35, 39, 0.25);";
+        document.getElementById("crowd").style.backgroundColor = "#ffeaea";
+        document.getElementById("crowd").style.boxShadow = "2px 2px 4px 0 rgba(32, 35, 39, 0.25);";
     };
 
     handleClickLotSelected = (e) => {
         e.preventDefault();
         this.state.amountOfPeople="Mucha";
-        localStorage.setItem("amountOfPeople",this.state.amountOfPeople) 
+        localStorage.setItem("amountOfPeople",this.state.amountOfPeople);
+        document.getElementById("lot").style.backgroundColor = "#fff9f9";
+        document.getElementById("lot").style.boxShadow = "inset -4px -4px 4px 0 rgba(145, 150, 159, 0.1), inset 4px 4px 4px 0 rgba(255, 151, 149, 0.3)";
+        document.getElementById("few").style.backgroundColor = "#ffeaea";
+        document.getElementById("few").style.boxShadow = "2px 2px 4px 0 rgba(32, 35, 39, 0.25);";
+        document.getElementById("crowd").style.backgroundColor = "#ffeaea";
+        document.getElementById("crowd").style.boxShadow = "2px 2px 4px 0 rgba(32, 35, 39, 0.25);";
     };
 
     handleClickCrowdSelected = (e) => {
         e.preventDefault();
         this.state.amountOfPeople="Aglomeracion";
-        localStorage.setItem("amountOfPeople",this.state.amountOfPeople) 
+        localStorage.setItem("amountOfPeople",this.state.amountOfPeople);
+        document.getElementById("crowd").style.backgroundColor = "#fff9f9";
+        document.getElementById("crowd").style.boxShadow = "inset -4px -4px 4px 0 rgba(145, 150, 159, 0.1), inset 4px 4px 4px 0 rgba(255, 151, 149, 0.3)";
+        document.getElementById("lot").style.backgroundColor = "#ffeaea";
+        document.getElementById("lot").style.boxShadow = "2px 2px 4px 0 rgba(32, 35, 39, 0.25);";
+        document.getElementById("few").style.backgroundColor = "#ffeaea";
+        document.getElementById("few").style.boxShadow = "2px 2px 4px 0 rgba(32, 35, 39, 0.25);"; 
     };
 
     addData = async (e) => {
@@ -88,7 +106,6 @@ class FifthWindow extends React.Component {
                     <p className="type-alert-p"> Tipo de alerta </p>
                     <div className="alerts-block">
                         <div className="upper-block">
-                            <div className="delete">
                                 <div className="first-block-delete-circle">
                                     <img
                                         src="img/FifthWindow/Delete/Delete.svg"
@@ -97,13 +114,12 @@ class FifthWindow extends React.Component {
                                         srcSet="img/FifthWindow/Delete/Delete@2x.png 2x, img/FifthWindow/Delete/Delete@3x.png 3x"
                                         className="first-block-delete-img"
                                     ></img>
-                                </div>
                                 <p className="first-block-delete-p"> Cantidad de gente </p>
                             </div>        
                         </div>
                         <div className="last-block">
                             <div className="AttentionConteiner">
-                                <div className="Atenttion">
+                                <div className="Atenttion" id="few">
                                     <img src="img/FifthWindow/Poca/Poca.png"
                                     alt="Poca gente"
                                     srcSet="img/FifthWindow/Poca/Poca@2x.png 2x, img/FifthWindow/Poca/Poca@3x.png 3x"
@@ -111,7 +127,7 @@ class FifthWindow extends React.Component {
                                 </div>
                                 <div className="AtenttionText">Poca</div></div>
                             <div className="AttentionConteiner">
-                                <div className="Atenttion">
+                                <div className="Atenttion" id="lot">
                                     <img src="img/FifthWindow/Mucha/Mucha.png"
                                     alt="Mucha gente"
                                     srcSet="img/FifthWindow/Mucha/Mucha@2x.png 2x, img/FifthWindow/Mucha/Mucha@3x.png 3x"
@@ -119,7 +135,7 @@ class FifthWindow extends React.Component {
                                 </div>
                                 <div className="AtenttionText">Mucha</div></div>
                             <div className="AttentionConteiner">
-                                <div className="Atenttion">
+                                <div className="Atenttion" id="crowd">
                                     <img src="img/FifthWindow/Aglomeracion/Aglomeracion.png"                                    
                                     alt="Aglomeración"
                                     srcSet="img/FifthWindow/Aglomeracion/Aglomeracion@2x.png 2x, img/FifthWindow/Aglomeracion/Aglomeracion@3x.png 3x"

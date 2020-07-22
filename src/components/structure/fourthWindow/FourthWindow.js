@@ -39,31 +39,58 @@ class FourthWindow extends React.Component {
     handleClickManifestationSelected = (e) => {
         e.preventDefault();
         this.state.typeOfAlert="Manifestacion";
-        localStorage.setItem("typeOfAlert",this.state.typeOfAlert) 
+        localStorage.setItem("typeOfAlert",this.state.typeOfAlert);
+        document.getElementById("manifestacion").style.backgroundColor = "#fff9f9";
+        document.getElementById("manifestacion").style.boxShadow = "inset -4px -4px 4px 0 rgba(145, 150, 159, 0.1), inset 4px 4px 4px 0 rgba(255, 151, 149, 0.3)";
+        document.getElementById("evento").style.backgroundColor = "#FFF9F9";
+        document.getElementById("evento").style.boxShadow = "2px 2px 4px 0 rgba(32, 35, 39, 0.25)";
+        document.getElementById("obra").style.backgroundColor = "#FFF9F9";
+        document.getElementById("obra").style.boxShadow = "2px 2px 4px 0 rgba(32, 35, 39, 0.25)";
+        document.getElementById("otro").style.backgroundColor = "#FFF9F9";
+        document.getElementById("otro").style.boxShadow = "2px 2px 4px 0 rgba(32, 35, 39, 0.25)";
     };
 
     handleClickEventSelected = (e) => {
         e.preventDefault();
         this.state.typeOfAlert="Evento"
-        localStorage.setItem("typeOfAlert",this.state.typeOfAlert) 
+        localStorage.setItem("typeOfAlert",this.state.typeOfAlert);
+        document.getElementById("evento").style.backgroundColor = "#fff9f9";
+        document.getElementById("evento").style.boxShadow = "inset -4px -4px 4px 0 rgba(145, 150, 159, 0.1), inset 4px 4px 4px 0 rgba(255, 151, 149, 0.3)";
+        document.getElementById("manifestacion").style.backgroundColor = "#FFF9F9";
+        document.getElementById("manifestacion").style.boxShadow = "2px 2px 4px 0 rgba(32, 35, 39, 0.25)";
+        document.getElementById("obra").style.backgroundColor = "#FFF9F9";
+        document.getElementById("obra").style.boxShadow = "2px 2px 4px 0 rgba(32, 35, 39, 0.25)";
+        document.getElementById("otro").style.backgroundColor = "#FFF9F9";
+        document.getElementById("otro").style.boxShadow = "2px 2px 4px 0 rgba(32, 35, 39, 0.25)"; 
     };
   
     handleClickBuildingSelected = (e) => {
         e.preventDefault();
         this.state.typeOfAlert="Obra";
-        localStorage.setItem("typeOfAlert",this.state.typeOfAlert) 
+        localStorage.setItem("typeOfAlert",this.state.typeOfAlert);
+        document.getElementById("obra").style.backgroundColor = "#fff9f9";
+        document.getElementById("obra").style.boxShadow = "inset -4px -4px 4px 0 rgba(145, 150, 159, 0.1), inset 4px 4px 4px 0 rgba(255, 151, 149, 0.3)";
+        document.getElementById("evento").style.backgroundColor = "#FFF9F9";
+        document.getElementById("evento").style.boxShadow = "2px 2px 4px 0 rgba(32, 35, 39, 0.25)";
+        document.getElementById("manifestacion").style.backgroundColor = "#FFF9F9";
+        document.getElementById("manifestacion").style.boxShadow = "2px 2px 4px 0 rgba(32, 35, 39, 0.25)";
+        document.getElementById("otro").style.backgroundColor = "#FFF9F9";
+        document.getElementById("otro").style.boxShadow = "2px 2px 4px 0 rgba(32, 35, 39, 0.25)";
     };
   
     handleClickOtherSelected = (e) => {
         e.preventDefault();
         this.state.typeOfAlert="Otro";
-        localStorage.setItem("typeOfAlert",this.state.typeOfAlert) 
+        localStorage.setItem("typeOfAlert",this.state.typeOfAlert); 
+        document.getElementById("otro").style.backgroundColor = "#fff9f9";
+        document.getElementById("otro").style.boxShadow = "inset -4px -4px 4px 0 rgba(145, 150, 159, 0.1), inset 4px 4px 4px 0 rgba(255, 151, 149, 0.3)";
+        document.getElementById("evento").style.backgroundColor = "#FFF9F9";
+        document.getElementById("evento").style.boxShadow = "2px 2px 4px 0 rgba(32, 35, 39, 0.25)";
+        document.getElementById("obra").style.backgroundColor = "#FFF9F9";
+        document.getElementById("obra").style.boxShadow = "2px 2px 4px 0 rgba(32, 35, 39, 0.25)";
+        document.getElementById("manifestacion").style.backgroundColor = "#FFF9F9";
+        document.getElementById("manifestacion").style.boxShadow = "2px 2px 4px 0 rgba(32, 35, 39, 0.25)";
     };
-
-/*     function guardar_localstorage() {
-
-    } */
-
 
     render() {
         return (
@@ -84,7 +111,7 @@ class FourthWindow extends React.Component {
                     <div className="alerts-block">
                         <div className="one-block">
                             <div className="manifestacion">
-                                <div className="first-block-manifestacion-circle">
+                                <div className="first-block-manifestacion-circle" id="manifestacion">
                                     <img
                                         src="img/FourthWindow/Manifestacion/Manifestacion.svg"
                                         src="img/FourthWindow/Manifestacion/Manifestacion.png"
@@ -96,10 +123,10 @@ class FourthWindow extends React.Component {
                                 <p className="first-block-manifestacion-p"> Manifestación </p>
                             </div>
                             <div className="evento">
-                                <div className="first-block-evento-circle">
+                                <div className="first-block-evento-circle" id="evento">
                                     <img
                                         src="img/FourthWindow/Evento/Evento.svg"
-                                        src= "img/FourthWindow/Evento/Evento.png"
+                                        src="img/FourthWindow/Evento/Evento.png"
                                         alt="logo"
                                         srcSet="img/FourthWindow/Evento/Evento@2x.png 2x, img/FourthWindow/Evento/Evento@3x.png 3x"
                                         className="first-block-evento-img"
@@ -110,7 +137,7 @@ class FourthWindow extends React.Component {
                         </div>
                         <div className="two-block">
                             <div className="obra">
-                                <div className="second-block-obra-circle">
+                                <div className="second-block-obra-circle" id="obra">
                                     <img
                                         src="img/FourthWindow/Obras/Obras.svg"
                                         src="img/FourthWindow/Obras/Obras.png"
@@ -123,7 +150,7 @@ class FourthWindow extends React.Component {
                                 <p className="second-block-obra-p"> Obra </p>
                             </div>
                             <div className="otro">
-                                <div className="second-block-otro-circle">
+                                <div className="second-block-otro-circle" id="otro">
                                     <img
                                         src="img/FourthWindow/Otros/Otros.svg"
                                         src="img/FourthWindow/Otros/Otros.png"
@@ -139,7 +166,7 @@ class FourthWindow extends React.Component {
                     </div>
                     <div className="add-alert">
                     <button className="add-alert-btn" onClick={this.handleClickCreate}>
-                        <p className="add-alert-p">Crear alerta</p>
+                        <p className="add-alert-p">Siguiente</p>
                     </button>
                     </div>
                 </div>
