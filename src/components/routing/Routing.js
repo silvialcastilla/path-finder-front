@@ -13,22 +13,27 @@ class Routing extends MapLayer {
     
     if (this.props.resultapi !== '') {
       result = resultapi.map(item => L.latLng(item[1], item[0]))
+      console.log(result)
+      L.latLng([40.421725, -3.691808])
     }
     else {
       result = [];
     }
 
-
     var greenIcon = new L.Icon({
-      iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-black.png',
-      shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.4/images/marker-shadow.png',
-      iconSize: [25, 41],
-      iconAnchor: [12, 41],
+      iconUrl: 'https://iconsplace.com/wp-content/uploads/_icons/000000/256/png/line-icon-256.png',
+      iconSize: [10, 10],
+      iconAnchor: [10, 10],
+      popupAnchor: [1, -34]
+    });
+
+    var blue = new L.Icon({
+      iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Location_dot_red.svg/1024px-Location_dot_red.svg.png',
+      iconSize: [25, 25],
+      iconAnchor: [10, 10],
       popupAnchor: [1, -34],
-      shadowSize: [41, 41]
     });
     
-
     //console.log(resultapi)
     let leafletElement = L.Routing.control({
       waypoints: result,
@@ -36,7 +41,7 @@ class Routing extends MapLayer {
         if (i === 0 || i === nWps - 1) {
           // here change the starting and ending icons
           return L.marker(wp.latLng, {
-            icon: greenIcon // here pass the custom marker icon instance
+            icon: blue // here pass the custom marker icon instance
           });
         } else {
           // here change all the others
