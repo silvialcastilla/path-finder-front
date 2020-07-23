@@ -13,12 +13,12 @@ class FourthWindow extends React.Component {
         this.handleClickBack = this.handleClickBack.bind(this);
         this.handleClickCreate = this.handleClickCreate.bind(this)
         
-        const db = firebase.firestore()
-        db.collection('alerts').get().then(
-          (snapshot) => localStorage.setItem("dbLength",snapshot.docs.length)
-        );
-        const id= localStorage.getItem("dbLength");
-        console.log(id);
+        // const db = firebase.firestore()
+        // db.collection('alerts').get().then(
+        //   (snapshot) => localStorage.setItem("dbLength",snapshot.docs.length)
+        // );
+        // const id= localStorage.getItem("dbLength");
+        // console.log(id);
     }
 
     handleClickBack = (e) => {

@@ -11,6 +11,7 @@ import {
 import L from "leaflet";
 //import Routing from "../../routing/Routing";
 import Form from "../../form/Form";
+import { firebase } from "../../../firebase";
 
 import "./ThirdWindow.css";
 
@@ -41,6 +42,11 @@ class ThirdWindow extends React.Component {
         });
       }.bind(this)
     );
+
+    //   const db = firebase.firestore()
+    //   db.collection('alerts').get().then(
+    //     (snapshot) => localStorage.setItem("dbLength",snapshot.docs.length)
+    //  );
   }
 
   saveMap = (map) => {
@@ -81,17 +87,29 @@ class ThirdWindow extends React.Component {
     });
   };
 
-  /*printResult = (results) =>{
-    this.state.resultapi = results 
-    results.map(item => {
-      return (
-        item[1], item[0]
-      )
-    })
-  } */
+  makeMarker = async () => {
+    try {
+      const db = firebase.firestore();
+      const data = await db.collection("alerts").get();
+      const arrayData = await data.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      let latitude = arrayData.map((item) => {
+        item.latitude
+      });
+      // setAlerts(arrayData)
 
-  outputEvent(resultapi, steps) {
-    this.setState({ ...this.state, resultapi: resultapi, steps: steps });
+      /*           let typeOfAlert = localStorage.getItem("typeOfAlert")
+      console.log(typeOfAlert) */
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  outputEvent(resultapi) {
+    this.setState({ ...this.state, resultapi: resultapi });
+    this.makeMarker();
     console.log(this.state);
   }
 
@@ -107,11 +125,16 @@ class ThirdWindow extends React.Component {
           className="map-box"
         >
           <TileLayer url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png" />
-          <Marker position={position}/>
+          {/* <Marker position={this.makeMarker}/> */}
 
-          <Polyline color="blue" positions={this.state.resultapi !== '' ? 
-          this.state.resultapi.map(item => L.latLng(item[1], item[0])) : []
-          } />
+          <Polyline
+            color="blue"
+            positions={
+              this.state.resultapi !== ""
+                ? this.state.resultapi.map((item) => L.latLng(item[1], item[0]))
+                : []
+            }
+          />
         </Map>
         <img
           onClick={this.handleClickHelp}
