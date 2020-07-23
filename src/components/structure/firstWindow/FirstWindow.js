@@ -17,10 +17,11 @@ class FirstWindow extends React.Component {
     return (
       <div className="first-page">
         <img
+         srcSet="img/FirstWindow/SubtractLeft/subtract@2x.png 2x, img/FirstWindow/SubtractLeft/Subtract@3x.png 3x"
           src="img/FirstWindow/SubtractLeft/Subtract.svg" 
           src="img/FirstWindow/SubtractLeft/Subtract.png"
           alt="logo"
-          srcSet="img/FirstWindow/SubtractLeft/subtract@2x.png 2x, img/FirstWindow/SubtractLeft/Subtract@3x.png 3x"
+         
           className="subtract-left"
         ></img>
         <img
@@ -39,14 +40,6 @@ class FirstWindow extends React.Component {
                     img/FirstWindow/Logo/Logo@3x.png 3x"
             className="Logo"
             onClick={this.handleClick}
-          ></img>
-          <img
-            src="img/FirstWindow/Ellipse3/Ellipse3.svg"
-            src="img/FirstWindow/Ellipse3/Ellipse3.png"
-            alt="ellipse"
-            srcSet="img/FirstWindow/Ellipse3/Ellipse3@2x.png 2x,
-                    img/FirstWindow/Ellipse3/Ellipse3@3x.png 3x"
-            className="Ellipse3"
           ></img>
         </div>
         <img

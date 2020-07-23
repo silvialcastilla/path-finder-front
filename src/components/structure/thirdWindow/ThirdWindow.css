@@ -24,7 +24,7 @@ leaflet-control-zoom leaflet-bar leaflet-control {
 }
 .help{
     position: absolute;
-    top: 108px;
+    top: 75px;
     left: 307px
 }.button-alert {
     width: 320px;
@@ -43,7 +43,7 @@ leaflet-control-zoom leaflet-bar leaflet-control {
     display: flex;
     flex-direction: center;
     align-items: center;
-    padding-left: 90px;
+    padding-left: 75px;
 }
 .button-alert-img {
     width: 24px;

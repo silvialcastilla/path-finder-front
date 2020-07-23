@@ -26,6 +26,7 @@ class ThirdWindow extends React.Component {
       isMapInit: false,
       resultapi: "",
       markers: [],
+      popup: []
     };
     this.handleClickAlert = this.handleClickAlert.bind(this);
     this.handleClickHelp = this.handleClickHelp.bind(this);
@@ -42,7 +43,7 @@ class ThirdWindow extends React.Component {
         });
       }.bind(this)
     );
-
+      this.makeMarker()
     //   const db = firebase.firestore()
     //   db.collection('alerts').get().then(
     //     (snapshot) => localStorage.setItem("dbLength",snapshot.docs.length)
@@ -61,6 +62,8 @@ class ThirdWindow extends React.Component {
     this.setState({ ...this.state, resultapi: resultapi });
     console.log(this.state);
   }
+
+
 
   handleClickHelp = (e) => {
     e.preventDefault();
@@ -95,34 +98,29 @@ class ThirdWindow extends React.Component {
         id: doc.id,
         ...doc.data(),
       }));
-      let arrayfinal = arrayData.map((item) => {
+        let arrayfinal = arrayData.map((item) => {
         return [parseFloat(item.latitude), parseFloat(item.longitude)]
       });
-      this.setState({ ...this.state, markers: arrayfinal });
-      console.log(arrayfinal[0].latitude)
+        let popup = arrayData.map((element) => {
+          return (element.typeOfAlert, element.amountOfPeople, element.timestamp)
+        })
+      this.setState({ ...this.state, markers: arrayfinal, popup: popup });
+
     } catch (error) {
       console.log(error);
     }
   };
 
-  pointerIcon = new L.Icon({
-    iconUrl: '../assets/pointerIcon.svg',
-    iconRetinaUrl: '../assets/pointerIcon.svg',
-    iconAnchor: [5, 55],
-    popupAnchor: [10, -44],
-    iconSize: [25, 55],
-    shadowUrl: '../assets/marker-shadow.png',
-    shadowSize: [68, 95],
-    shadowAnchor: [20, 92],
-  })
-
   outputEvent(resultapi) {
     this.setState({ ...this.state, resultapi: resultapi });
+
     console.log(this.state);
   }
 
+
   render() {
     const position = [this.state.lat, this.state.lng];
+
 
     return (
       <div>
@@ -133,7 +131,7 @@ class ThirdWindow extends React.Component {
           className="map-box"
         >
           <TileLayer url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png" />
-          {this.state.markers.length > 0 ? this.state.markers.map((element) => <Marker position={element} icon={pointerIcon} />) : ''}
+    {this.state.markers.length > 0 ? this.state.markers.map((element) => <Marker position={element} ><Popup>{this.state.popup.map((o)=> `${o.amountOfPeople}`)}</Popup></Marker>  ) : ''}
 
           <Polyline
             color="red"

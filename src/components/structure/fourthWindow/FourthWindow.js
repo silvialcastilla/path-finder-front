@@ -120,7 +120,9 @@ class FourthWindow extends React.Component {
                                         className="first-block-manifestacion-img"
                                         onClick={this.handleClickManifestationSelected}></img>
                                 </div>
+                                <div className="div-block">
                                 <p className="first-block-manifestacion-p"> Manifestación </p>
+                                </div>
                             </div>
                             <div className="evento">
                                 <div className="first-block-evento-circle" id="evento">
@@ -132,7 +134,9 @@ class FourthWindow extends React.Component {
                                         className="first-block-evento-img"
                                         onClick={this.handleClickEventSelected}></img>
                                 </div>
+                                <div className="div-block">
                                 <p className="first-block-evento-p"> Evento </p>
+                                </div>
                             </div>
                         </div>
                         <div className="two-block">
@@ -147,7 +151,9 @@ class FourthWindow extends React.Component {
                                         onClick={this.handleClickBuildingSelected}
                                     ></img>
                                 </div>
+                                <div className="div-block">
                                 <p className="second-block-obra-p"> Obra </p>
+                                </div>
                             </div>
                             <div className="otro">
                                 <div className="second-block-otro-circle" id="otro">
@@ -160,7 +166,9 @@ class FourthWindow extends React.Component {
                                         onClick={this.handleClickOtherSelected}
                                     ></img>
                                 </div>
+                                <div className="div-block">
                                 <p className="second-block-otro-p"> Otro </p>
+                                </div>
                             </div>
                         </div>
                     </div>

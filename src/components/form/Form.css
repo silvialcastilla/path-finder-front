@@ -5,8 +5,9 @@
     border-radius: 8px;
     border: solid 1px #91969f;
     background-color: #fff9f9;
-    top: 40px;
-    left: 50px  
+    top: 14px;
+    left: 50px;
+    padding-left: 15px;
 }
 
 .placeholder {

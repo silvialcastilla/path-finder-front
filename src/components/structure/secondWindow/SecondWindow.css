@@ -10,6 +10,10 @@
     width: 375px;
     height: 667px;
     background-color: #fff9f9;
+    padding-top: 15px;
+}
+.second-page-div {
+    padding-top: 5px;
 }
 .second-page-l{
     display: none;
@@ -86,9 +90,12 @@ align-content: center;
     color: #333333;
 }
 
+
+
 .Aceptgeoloc{
     width: 300px;
     height: 52px;
+    padding-top: 20px;
     font-family: Lato;
     font-size: 12px;
     font-weight: normal;
@@ -98,6 +105,7 @@ align-content: center;
     letter-spacing: 0.4px;
     color: #333333;
 }
+
 
 .WelcomeText{
     padding: 0;

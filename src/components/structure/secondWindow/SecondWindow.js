@@ -34,7 +34,9 @@ class SecondWindow extends React.Component {
         </div>
         <div className="textContainer2">
         <div className="Welcome">
+          <div className="welcomehome">
           <p className="WelcomeText">Una app que te permite desplazarte evitando</p> <p className="WelcomeText">aglomeraciones.</p></div>
+          </div>
         <div className="Aceptgeoloc"><p className="WelcomeText">Al dar al botón comenzar estás aceptando que Mappi utilice tu ubicación.</p></div>
         </div>
         <button onClick={this.handleClick} className="btn btn-secondPage">Comenzar</button>

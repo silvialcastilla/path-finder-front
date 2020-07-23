@@ -90,6 +90,10 @@
     height: 84px;
     object-fit: contain;
 }
+.div-block{
+    padding-top: 15px;
+    padding-left: 4px
+}
 .first-block-manifestacion-p {
     width: 118px;
     height: 28px;
