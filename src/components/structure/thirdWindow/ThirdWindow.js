@@ -26,7 +26,9 @@ class ThirdWindow extends React.Component {
       isMapInit: false,
       resultapi: "",
       markers: [],
-      popup: []
+      popup: [],
+      inicio: '', 
+      final: ''
     };
     this.handleClickAlert = this.handleClickAlert.bind(this);
     this.handleClickHelp = this.handleClickHelp.bind(this);
@@ -60,6 +62,9 @@ class ThirdWindow extends React.Component {
 
   outputEvent(resultapi) {
     this.setState({ ...this.state, resultapi: resultapi });
+    console.log(resultapi.map((o) => o[0]))
+    let inicio = resultapi.map((o) => o[0])
+    this.setState({ ...this.state, resultapi: resultapi, inicio: inicio })
     console.log(this.state);
   }
 
@@ -102,7 +107,7 @@ class ThirdWindow extends React.Component {
         return [parseFloat(item.latitude), parseFloat(item.longitude)]
       });
         let popup = arrayData.map((element) => {
-          return [element.typeOfAlert, element.amountOfPeople, element.timestamp]
+          return [element.typeOfAlert, element.amountOfPeople, element.date]
         })
         console.log(popup)
       this.setState({ ...this.state, markers: arrayfinal, popup: popup });
@@ -134,7 +139,7 @@ class ThirdWindow extends React.Component {
           <TileLayer url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png" />
     {this.state.markers.length > 0 ? this.state.markers.map((element, id) => <Marker position={element} >
       <Popup>
-        {`Tipo de alerta: ${this.state.popup[id]}, Cantidad de gente: ${this.state.popup[id]} `}
+        {`Tipo de alerta: ${this.state.popup[id][0]}, Cantidad de gente: ${this.state.popup[id][1]}, Hora de creación ${this.state.popup[id][2]} `}
       </Popup></Marker>  ) : ''}
 
           <Polyline

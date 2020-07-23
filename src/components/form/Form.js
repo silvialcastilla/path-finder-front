@@ -34,13 +34,22 @@ class Form extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    async function getCoord(origin, destiny) {
+    async function getOrigin(origin) {
       let response = await fetch(
-        `https://primeraapi.herokuapp.com/points?origen=${origin}&destino=${destiny}`
+        `https://primeraapi.herokuapp.com/points?origen=${origin}`
       );
       let data = await response.json();
       return data;
     }
+
+    async function getDestiny(destiny) {
+      let response = await fetch(
+        `https://segundaapi.herokuapp.com/points?destino=${destiny}`
+      );
+      let data = await response.json();
+      return data;
+    }
+
 
     async function takeCoord(latorigin, longorigin, latdestiny, longdestiny) {
       let response = await fetch(
@@ -50,15 +59,21 @@ class Form extends React.Component {
       return data;
     }
 
-    getCoord(this.state.origin, this.state.destiny)
+    getOrigin(this.state.origin).then((data) => {
+      console.log(data)
+      this.setState({
+        ...this.state, 
+        latorigin: data.lat,
+        longorigin: data.lng
+      })
+      console.log(data)
+    }).then(() => getDestiny(this.state.destiny)
       .then((data) => {
         console.log(data)
         this.setState({
           ...this.state,
-          latorigin: data.bbox.northeast[0],
-          longorigin: data.bbox.northeast[1],
-          latdestiny: data.bbox.southwest[0],
-          longdestiny: data.bbox.southwest[1],
+          latdestiny: data.lat,
+          longdestiny: data.lng
         });
         console.log(this.state)
       })
@@ -74,7 +89,7 @@ class Form extends React.Component {
             this.setState({ ...this.state, showResults: false });
           }).then(() => 
               this.props.clickHandler(this.state.resultapi, this.state.steps)
-      ));
+      )));
 
   
   }
