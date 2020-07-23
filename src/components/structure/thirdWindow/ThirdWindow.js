@@ -21,7 +21,7 @@ class ThirdWindow extends React.Component {
       ubicacion: null,
       lat: "",
       lng: "",
-      zoom: 15,
+      zoom: 14,
       isMapInit: false,
       resultapi: "",
       steps: "",

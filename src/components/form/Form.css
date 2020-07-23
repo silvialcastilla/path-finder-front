@@ -24,12 +24,35 @@
     display:flex;
     flex-direction: column;
     width: 375px;
-    height: 190px;
+    height: 200px;
     background-color: #fffcfc;  
+}
+
+.div-first {
+   padding-top: 30px;
+   padding-bottom: 8px;
+}
+
+.div-second {
+    padding-bottom: 20px;
+}
+
+.div-third{
+    padding-left: 170px
 }
 .ubication{
     width: 293px;
     height: 48px;
+    padding-left: 16px;
+    border-radius: 8px;
+    border: solid 1px #91969f;
+    background-color: #fff9f9;
+}
+
+.destiny{
+    width: 293px;
+    height: 48px;
+    padding-left: 16px;
     border-radius: 8px;
     border: solid 1px #91969f;
     background-color: #fff9f9;

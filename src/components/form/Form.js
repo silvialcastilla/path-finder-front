@@ -34,11 +34,6 @@ class Form extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    let origin = this.state.origin;
-    let destiny = this.state.destiny;
-    console.log(origin);
-    console.log(destiny);
-
     async function getCoord(origin, destiny) {
       let response = await fetch(
         `https://primeraapi.herokuapp.com/points?origen=${origin}&destino=${destiny}`
@@ -47,40 +42,41 @@ class Form extends React.Component {
       return data;
     }
 
-    getCoord(origin, destiny).then((data) => {
-      this.setState({
-        ...this.state,
-        latorigin: data.bbox[0],
-        longorigin: data.bbox[1],
-        latdestiny: data.bbox[2],
-        longdestiny: data.bbox[3],
-      });
-    });
-
-    let latorigin = this.state.latorigin;
-    let longorigin = this.state.longorigin;
-    let latdestiny = this.state.latdestiny;
-    let longdestiny = this.state.longdestiny;
-
-    async function takeCoord() {
+    async function takeCoord(latorigin, longorigin, latdestiny, longdestiny) {
       let response = await fetch(
-        `http://prubeapi.herokuapp.com/${latorigin}/${longorigin}/${latdestiny}/${longdestiny}`
+        `https://revisedapi.herokuapp.com/points?latorigin=${latorigin}&lonorigin=${longorigin}&latdestiny=${latdestiny}&londestiny=${longdestiny}`
       );
       let data = await response.json();
       return data;
     }
 
-    takeCoord(origin, destiny).then((data) => {
-      console.log(data)
-      this.setState({
-        ...this.state,
-        resultapi: data.features[0].geometry.coordinates, 
-        steps: data.features[0].properties.segments[0]
-      });
-      this.setState({ ...this.state, showResults: false });
-    }).then(
-      () => this.props.clickHandler(this.state.resultapi, this.state.steps)
-    );
+    getCoord(this.state.origin, this.state.destiny)
+      .then((data) => {
+        console.log(data)
+        this.setState({
+          ...this.state,
+          latorigin: data.bbox.northeast[0],
+          longorigin: data.bbox.northeast[1],
+          latdestiny: data.bbox.southwest[0],
+          longdestiny: data.bbox.southwest[1],
+        });
+        console.log(this.state)
+      })
+      .then(() => 
+        takeCoord(this.state.latorigin, this.state.longorigin, this.state.latdestiny, this.state.longdestiny)
+          .then((data) => {
+            console.log(data)
+            this.setState({
+              ...this.state,
+              resultapi: data.features[0].geometry.coordinates, 
+              steps: data.features[0].properties.segments[0]
+            });
+            this.setState({ ...this.state, showResults: false });
+          }).then(() => 
+              this.props.clickHandler(this.state.resultapi, this.state.steps)
+      ));
+
+  
   }
 
   render() {
@@ -91,14 +87,8 @@ class Form extends React.Component {
             <div className="finder">
               <div className="icons">
                 <div>
-                  <img
-                    src="img/ThirdWindow/CircleForm/CircleForm.svg"
-                    src="img/ThirdWindow/CircleForm/CircleForm.png"
-                    alt="logo"
-                    srcSet="img/ThirdWindow/CircleForm/CircleForm@2x.png 2x, img/ThirdWindow/CircleForm/CircleForm@3x.png 3x"
-                    className="icon-form"
-                  ></img>
-                  <label htmlFor="origin"></label>
+                  <div className="div-first">
+                <label htmlFor="origin" className="ubication-label"></label>
                   <input
                     type="text"
                     className="ubication"
@@ -108,31 +98,27 @@ class Form extends React.Component {
                     placeholder="Tu ubicación"
                     onChange={this.handleInputChange}
                   />
-                </div>
-                <div>
-                  <img
-                    src="img/ThirdWindow/AlForm/AlForm.svg"
-                    src="img/ThirdWindow/AlForm/AlForm.png"
-                    alt="logo"
-                    srcSet="img/ThirdWindow/AlForm/AlForm@2x.png 2x, img/ThirdWindow/AlForm/AlForm@3x.png 3x"
-                    className="icon-form"
-                  ></img>
+                  </div>
+                  <div className="div-second">
                   <label htmlFor="destiny"></label>
                   <input
                     type="text"
-                    className="ubication"
+                    className="destiny"
                     id="destiny"
                     name="destiny"
                     value={this.state.destiny}
                     placeholder="Buscar destino"
                     onChange={this.handleInputChange}
                   />
+                  </div>
+                  <div className="div-third">
                   <button
                     type="submit"
                     className="button-go-to-destiny"
                   >
                     <p className="button-go-to-destiny-p">ir al destino</p>
                   </button>
+                  </div>
                 </div>
               </div>
             </div>
