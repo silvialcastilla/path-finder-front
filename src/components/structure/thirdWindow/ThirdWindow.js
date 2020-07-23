@@ -25,7 +25,7 @@ class ThirdWindow extends React.Component {
       zoom: 14,
       isMapInit: false,
       resultapi: "",
-      steps: "",
+      markers: [],
     };
     this.handleClickAlert = this.handleClickAlert.bind(this);
     this.handleClickHelp = this.handleClickHelp.bind(this);
@@ -95,21 +95,29 @@ class ThirdWindow extends React.Component {
         id: doc.id,
         ...doc.data(),
       }));
-      let latitude = arrayData.map((item) => {
-        item.latitude
+      let arrayfinal = arrayData.map((item) => {
+        return [parseFloat(item.latitude), parseFloat(item.longitude)]
       });
-      // setAlerts(arrayData)
-
-      /*           let typeOfAlert = localStorage.getItem("typeOfAlert")
-      console.log(typeOfAlert) */
+      this.setState({ ...this.state, markers: arrayfinal });
+      console.log(arrayfinal[0].latitude)
     } catch (error) {
       console.log(error);
     }
   };
 
+  pointerIcon = new L.Icon({
+    iconUrl: '../assets/pointerIcon.svg',
+    iconRetinaUrl: '../assets/pointerIcon.svg',
+    iconAnchor: [5, 55],
+    popupAnchor: [10, -44],
+    iconSize: [25, 55],
+    shadowUrl: '../assets/marker-shadow.png',
+    shadowSize: [68, 95],
+    shadowAnchor: [20, 92],
+  })
+
   outputEvent(resultapi) {
     this.setState({ ...this.state, resultapi: resultapi });
-    this.makeMarker();
     console.log(this.state);
   }
 
@@ -125,10 +133,10 @@ class ThirdWindow extends React.Component {
           className="map-box"
         >
           <TileLayer url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png" />
-          {/* <Marker position={this.makeMarker}/> */}
+          {this.state.markers.length > 0 ? this.state.markers.map((element) => <Marker position={element} icon={pointerIcon} />) : ''}
 
           <Polyline
-            color="blue"
+            color="red"
             positions={
               this.state.resultapi !== ""
                 ? this.state.resultapi.map((item) => L.latLng(item[1], item[0]))
