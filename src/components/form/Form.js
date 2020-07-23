@@ -53,7 +53,8 @@ class Form extends React.Component {
 
     async function takeCoord(latorigin, longorigin, latdestiny, longdestiny) {
       let response = await fetch(
-        `https://revisedapi.herokuapp.com/points?latorigin=${latorigin}&lonorigin=${longorigin}&latdestiny=${latdestiny}&londestiny=${longdestiny}`
+        
+        `https://nuestraapi.herokuapp.com/points?latorigin=${latorigin}&lonorigin=${longorigin}&latdestiny=${latdestiny}0&londestiny=${longdestiny}`
       );
       let data = await response.json();
       return data;
