@@ -107,6 +107,7 @@ class ThirdWindow extends React.Component {
           className="map-box"
         >
           <TileLayer url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png" />
+          <Marker position={position}/>
 
           <Polyline color="blue" positions={this.state.resultapi !== '' ? 
           this.state.resultapi.map(item => L.latLng(item[1], item[0])) : []
