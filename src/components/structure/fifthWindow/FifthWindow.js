@@ -10,7 +10,13 @@ class FifthWindow extends React.Component {
             ubicacion: null,
             amountOfPeople:"",
         };
+        this.handleClickHelp = this.handleClickHelp.bind(this);
     }
+
+    handleClickHelp = (e) => {
+        e.preventDefault();
+        this.props.history.push("/alerta");
+      };
 
     handleClickFewSelected = (e) => {
         e.preventDefault();
@@ -93,6 +99,7 @@ class FifthWindow extends React.Component {
             <div className="fifth-page">
                 <div className="back-alert" onClick={this.handleClick}>
                     <img
+                    onClick={this.handleClickHelp}
                         src="img/FifthWindow/LeftArrow/Arrow.svg"
                         src="img/FifthWindow/LeftArrow/Arrow.png"
                         alt="logo"

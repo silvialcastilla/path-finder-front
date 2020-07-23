@@ -22,7 +22,7 @@ class ThirdWindow extends React.Component {
       ubicacion: null,
       lat: "",
       lng: "",
-      zoom: 14,
+      zoom: 13,
       isMapInit: false,
       resultapi: "",
       markers: [],
@@ -118,7 +118,8 @@ class ThirdWindow extends React.Component {
   };
 
   outputEvent(resultapi) {
-    this.setState({ ...this.state, resultapi: resultapi });
+    const inicio = resultapi.map((o) => o[0])
+    this.setState({ ...this.state, resultapi: resultapi, inicio: this.state.inicio });
 
     console.log(this.state);
   }
@@ -137,7 +138,7 @@ class ThirdWindow extends React.Component {
           className="map-box"
         >
           <TileLayer url="https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png" />
-    {this.state.markers.length > 0 ? this.state.markers.map((element, id) => <Marker position={element} >
+    {this.state.markers.length > 0 ? this.state.markers.map((element, id) => <Marker position={element} color="red">
       <Popup>
         {`Tipo de alerta: ${this.state.popup[id][0]}, Cantidad de gente: ${this.state.popup[id][1]}, Hora de creación ${this.state.popup[id][2]} `}
       </Popup></Marker>  ) : ''}
@@ -156,7 +157,7 @@ class ThirdWindow extends React.Component {
           src="img/Help/ButtonHelp/ButtonHelp.svg"
           src="img/Help/ButtonHelp/ButtonHelp.png"
           alt="logo"
-          srcSet="img/Help/ButtonHelp/ButtonHelp.svg@2x.png 2x,img/Help/ButtonHelp/ButtonHelp.svg@3x.png 3x"
+        
           className="help"
         ></img>
         <div>

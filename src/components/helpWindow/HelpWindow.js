@@ -20,6 +20,7 @@ class HelpWindow extends React.Component {
     return (
       <div className="help-page">
         <div className="back-help" onClick={this.handleClick}>
+          <div className="back-div-help">
           <img
             src="img/FourthWindow/LeftArrow/Arrow.svg"
             src="img/FourthWindow/LeftArrow/Arrow.png"
@@ -27,10 +28,13 @@ class HelpWindow extends React.Component {
             srcSet="img/FourthWindow/LeftArrow/Arrow@2x.png 2x, img/FourthWindow/LeftArrow/Arrow@3x.png 3x"
             className="back-help-img"
           ></img>
+          </div>
           <p className="back-help-p"> Ayuda </p>
         </div>
         <div className="type-help">
+          <div className="type-help-div">
           <p className="type-help-p"> Preguntas frecuentes </p>
+          </div>
           <article className="help-block">
             <section className="question-one">
               <p className="question-one-p">¿Qué es una manifestación?</p>

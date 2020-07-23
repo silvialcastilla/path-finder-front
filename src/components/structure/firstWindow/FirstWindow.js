@@ -17,9 +17,9 @@ class FirstWindow extends React.Component {
     return (
       <div className="first-page">
         <img
-         srcSet="img/FirstWindow/SubtractLeft/subtract@2x.png 2x, img/FirstWindow/SubtractLeft/Subtract@3x.png 3x"
-          src="img/FirstWindow/SubtractLeft/Subtract.svg" 
-          src="img/FirstWindow/SubtractLeft/Subtract.png"
+                 src="img/FirstWindow/SubtractLeft/Subtract.png"
+                 src="img/FirstWindow/SubtractLeft/Subtract.svg" 
+         
           alt="logo"
          
           className="subtract-left"
