@@ -15,7 +15,7 @@ class FirstWindow extends React.Component {
 
   render() {
     return (
-      <div className="first-page">
+      <div className="first-page-container">
         <img
           src="img/FirstWindow/SubtractLeft/Subtract.svg" 
           src="img/FirstWindow/SubtractLeft/Subtract.png"

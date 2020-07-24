@@ -59,7 +59,8 @@ class FifthWindow extends React.Component {
               longitude: localStorage.getItem("longitude"), /* /^(-?(?:1[0-7]|[1-9])?d(?:.d{1,18})?|180(?:.0{1,18})?)$/ */
               typeOfAlert: localStorage.getItem("typeOfAlert"), 
               amountOfPeople: localStorage.getItem("amountOfPeople"),
-              timestamp:moment().format()
+              timestamp:parseInt(moment().format('X')),
+              date:moment().format('lll')
           }
 
           const dbLength= localStorage.getItem("dbLength");
