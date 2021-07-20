@@ -18,7 +18,7 @@
     "react-leaflet": "^2.7.0",
     "react-leaflet-draggable-polyline": "^1.0.3",
     "react-motion-drawer": "^3.1.0",
-    "react-native": "^0.63.0",
+    "react-native": "^0.64.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-sidebar": "^3.0.2",
